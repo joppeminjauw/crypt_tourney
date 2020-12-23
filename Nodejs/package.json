@@ -1,0 +1,22 @@
+{
+  "name": "crypt_tourney",
+  "version": "1.0.0",
+  "description": "A basic 1v1 tournament application for you and your friends!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joppeminjauw/crypt_tourney.git"
+  },
+  "author": "Joppe Minjauw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joppeminjauw/crypt_tourney/issues"
+  },
+  "homepage": "https://github.com/joppeminjauw/crypt_tourney#readme",
+  "dependencies": {
+    "mongodb": "^3.6.3"
+  }
+}
