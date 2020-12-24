@@ -7,6 +7,7 @@ import { TourneyListComponent } from './tourney-list/tourney-list.component';
 import { AddTourneyComponent } from './add-tourney/add-tourney.component';
 import { MatchOverviewComponent } from './match-overview/match-overview.component';
 import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.co
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

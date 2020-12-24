@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Tournament } from '../classes/tournament';
 
 @Component({
   selector: 'app-tourney-overview',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tourney-overview.component.scss']
 })
 export class TourneyOverviewComponent implements OnInit {
+  currentTournament: Tournament;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute
+  ) { }
 
   ngOnInit(): void {
+    this.route.data.subscribe((item) => (this.currentTournament = item["tourney"]));
   }
 
 }
