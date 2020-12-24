@@ -1,0 +1,4 @@
+TODO: 
+
+- persistence
+- find a way to pass full tournament object between components (if not possible use service)
