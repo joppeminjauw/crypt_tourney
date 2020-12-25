@@ -1,0 +1,15 @@
+.vs{
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.match{
+    border: 1px black solid;
+    &:hover{
+        cursor: pointer;
+    }
+}
+
+.right{
+    text-align: right;
+}

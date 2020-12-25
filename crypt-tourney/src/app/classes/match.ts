@@ -9,4 +9,6 @@ export class Match {
     winner: Player;
     bo: number;
     played: boolean;
+    score1: number;
+    score2: number;
 }

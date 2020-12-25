@@ -1,4 +1,37 @@
-<h2>{{ currentTournament.name }}</h2>
-<div *ngFor="let match of currentTournament.matches">
-    <app-match-overview [currentMatch]=match></app-match-overview>
+<h2 class="text-center mt-5 mb-5">{{ currentTournament.name }}</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <h3 class="text-center pt-4">MATCHES</h3>
+        <div *ngFor="let match of currentTournament.matches">
+            <div class="mt-2 mb-2 p-2 match text-center" [routerLink]="['/app-match-overview']" [state]="{data: match}">
+                <h5 class="text-center">{{match.matchname}}: BO{{match.bo}}</h5>
+                <div class="vs row text-center">
+                    <p class="col-sm-5 text-center">{{match.players[0].username}}</p>
+                    <p class="col-sm-2 text-center">{{match.score1}} - {{match.score2}}</p>
+                    <p class="col-sm-5 text-center">{{match.players[1].username}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <h3 class="text-center pt-4">RANKING</h3>
+        <table class="table table-row">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Username</th>
+                    <th class="right">Points</th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let player of orderedPlayers; let i = index">
+                <tr>
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ player.username }}</td>
+                    <td class="right">{{ player.points }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
+
+<!--TODO: ranking, all (needed) tourney info-->

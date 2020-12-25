@@ -7,12 +7,12 @@ import { Match } from '../classes/match';
   styleUrls: ['./match-overview.component.scss']
 })
 export class MatchOverviewComponent implements OnInit {
-  @Input() currentMatch: Match;
+  currentMatch: Match;
 
   constructor() { }
 
   ngOnInit(): void {
-    console.log(this.currentMatch);
+    this.currentMatch = history.state.data;
   }
 
 }

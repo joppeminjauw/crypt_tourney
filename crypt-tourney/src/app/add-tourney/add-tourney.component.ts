@@ -68,11 +68,13 @@ export class AddTourneyComponent implements OnInit {
           match.players = [];
           match.bo = game.bo;
           match.games = [];
-          match.matchname = game.gamename + ": Match " + (i+1);
+          match.score1 = 0;
+          match.score2 = 0;
+          match.matchname = game.gamename;
           match.gamename = game.gamename;
           match.played = false;
-          match.players.push(this.tournament.participants[i]);
           match.players.push(this.tournament.participants[j]);
+          match.players.push(this.tournament.participants[i]);
 
           for (let i = 1; i <= match.bo; i++) {
             var ingame = new Game();
@@ -88,6 +90,7 @@ export class AddTourneyComponent implements OnInit {
     });
 
     // persist tournament
+    this.tournament.matches = shuffle(this.tournament.matches);
 
     // go to tournament overview
     this.router.navigate(['/app-tourney-overview'], {state: {data: this.tournament}});
@@ -112,4 +115,23 @@ export class AddTourneyComponent implements OnInit {
     return this.matchForm.controls;
   }
 
+}
+
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
 }

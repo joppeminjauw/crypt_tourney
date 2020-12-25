@@ -1,62 +1,60 @@
-<div class="container">
-    <h2 class="text-center pt-5">{{ tournament.name }}</h2>
-    <div class="row">
-        <div class="col-sm-6">
-            <h3 class="text-center pt-4">Participants</h3> 
-            <table class="table table-row">
-                <thead>
-                    <tr>
-                        <th>Username</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let player of tournament.participants">
-                    <tr>
-                        <td>{{ player.username }}</td>
-                        <td class="delete"><i (click)="deleteUser(player)" class="fas fa-trash-alt float-right"></i></td>
-                    </tr>
-                </tbody>
-            </table>
-            <form [formGroup]="playerForm" (ngSubmit)="addPlayer()">
-                <div class="form-inline">
-                    <input type="text" formControlName="username" class="form-control inputfield" id="uninput">
-                    <!-- <div *ngIf="pf.username.errors.required">Username is required!</div> -->
-                    <button type="submit" class="btn btn-add"><i class="fas fa-plus-square fa-2x"></i></button>
-                </div>
-            </form>
-        </div>
-        <div class="col-sm-6">
-            <h3 class="text-center pt-4">Games</h3> 
-            <table class="table table-row">
-                <thead>
-                    <tr>
-                        <th>Game</th>
-                        <th>BO</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody *ngFor="let tourgame of tournament.tourGames">
-                    <tr>
-                        <td>{{ tourgame.gamename }}</td>
-                        <td>{{ tourgame.bo }}</td>
-                        <td class="delete"><i (click)="deleteGame(tourgame)" class="fas fa-trash-alt float-right"></i></td>
-                    </tr>
-                </tbody>
-            </table>
-            <form [formGroup]="matchForm" (ngSubmit)="addTourGame()">
-                <div class="form-inline">
-                    <input type="text" formControlName="gamename" class="form-control inputfield" id="gameinput">
-                    <!-- <div *ngIf="pf.username.errors.required">Username is required!</div> -->
-                    <select formControlName="bo" name="bo" id="bo">
-                        <option value="1" selected>1</option>
-                        <option value="3">3</option>
-                        <option value="5">5</option>
-                        <option value="7">7</option>
-                    </select>
-                    <button type="submit" class="btn btn-add"><i class="fas fa-plus-square fa-2x"></i></button>
-                </div>
-            </form>
-        </div>
+<h2 class="text-center pt-5">{{ tournament.name }}</h2>
+<div class="row">
+    <div class="col-sm-6">
+        <h3 class="text-center pt-4">Participants</h3>
+        <table class="table table-row">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let player of tournament.participants">
+                <tr>
+                    <td>{{ player.username }}</td>
+                    <td class="delete"><i (click)="deleteUser(player)" class="fas fa-trash-alt float-right"></i></td>
+                </tr>
+            </tbody>
+        </table>
+        <form [formGroup]="playerForm" (ngSubmit)="addPlayer()">
+            <div class="form-inline">
+                <input type="text" formControlName="username" class="form-control inputfield" id="uninput">
+                <!-- <div *ngIf="pf.username.errors.required">Username is required!</div> -->
+                <button type="submit" class="btn btn-add"><i class="fas fa-plus-square fa-2x"></i></button>
+            </div>
+        </form>
     </div>
-    <button (click)="makeTourney()" class="btn btn-primary float-right mt-5">Next</button>
+    <div class="col-sm-6">
+        <h3 class="text-center pt-4">Games</h3>
+        <table class="table table-row">
+            <thead>
+                <tr>
+                    <th>Game</th>
+                    <th>BO</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let tourgame of tournament.tourGames">
+                <tr>
+                    <td>{{ tourgame.gamename }}</td>
+                    <td>{{ tourgame.bo }}</td>
+                    <td class="delete"><i (click)="deleteGame(tourgame)" class="fas fa-trash-alt float-right"></i></td>
+                </tr>
+            </tbody>
+        </table>
+        <form [formGroup]="matchForm" (ngSubmit)="addTourGame()">
+            <div class="form-inline">
+                <input type="text" formControlName="gamename" class="form-control inputfield" id="gameinput">
+                <!-- <div *ngIf="pf.username.errors.required">Username is required!</div> -->
+                <select formControlName="bo" name="bo" id="bo">
+                    <option value="1" selected>1</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="7">7</option>
+                </select>
+                <button type="submit" class="btn btn-add"><i class="fas fa-plus-square fa-2x"></i></button>
+            </div>
+        </form>
+    </div>
 </div>
+<button (click)="makeTourney()" class="btn btn-primary float-right mt-5">Next</button>
