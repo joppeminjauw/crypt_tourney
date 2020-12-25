@@ -1,6 +1,14 @@
 TODO: 
 
+#TOURNAMENT_OVERVIEW
+
+- layout finish
 - persistence
-- tournament ranking
-- overall layout
+- show winner / played
+- list games played in tourney
 - find fix for match order (same player starts alot)
+
+#OVERAL 
+
+- persistence
+- overall layout
