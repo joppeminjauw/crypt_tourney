@@ -1,3 +1,4 @@
-<p>tourney-overview works!</p>
-
 <h2>{{ currentTournament.name }}</h2>
+<div *ngFor="let match of currentTournament.matches">
+    <app-match-overview [currentMatch]=match></app-match-overview>
+</div>

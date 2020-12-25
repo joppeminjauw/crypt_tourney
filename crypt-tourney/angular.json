@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "crypt-tourney"
+  "defaultProject": "crypt-tourney",
+  "cli": {
+    "analytics": false
+  }
 }

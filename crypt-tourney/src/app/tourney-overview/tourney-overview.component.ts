@@ -15,7 +15,7 @@ export class TourneyOverviewComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.data.subscribe((item) => (this.currentTournament = item["tourney"]));
+    this.currentTournament = history.state.data;
   }
 
 }

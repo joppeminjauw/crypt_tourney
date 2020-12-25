@@ -90,7 +90,7 @@ export class AddTourneyComponent implements OnInit {
     // persist tournament
 
     // go to tournament overview
-    this.router.navigate(['/app-tourney-overview', this.tournament]);
+    this.router.navigate(['/app-tourney-overview'], {state: {data: this.tournament}});
   }
 
   deleteUser(player: Player) {
