@@ -24,7 +24,7 @@ export class AddTourneyComponent implements OnInit {
     private _formbuilder: FormBuilder,
     private router: Router
   ) {
-    this.tournament = new Tournament;
+    this.tournament = new Tournament(null, null, null, null, null);
     this.tournament.name = "1V1 TOURNAMENT " + formatDate(new Date(), 'dd/MM/yyyy', 'en');
     this.tournament.matches = [];
     this.tournament.tourGames = [];
@@ -43,7 +43,7 @@ export class AddTourneyComponent implements OnInit {
   }
 
   addPlayer() {
-    var player = new Player;
+    var player = new Player(null, null);
     player.username = this.pf.username.value;
     player.points = 0;
     this.tournament.participants.push(player);
@@ -51,7 +51,7 @@ export class AddTourneyComponent implements OnInit {
   }
 
   addTourGame() {
-    var tourgame = new TourGame;
+    var tourgame = new TourGame(null, null);
     tourgame.bo = this.mf.bo.value;
     tourgame.gamename = this.mf.gamename.value;
     this.tournament.tourGames.push(tourgame);
@@ -64,7 +64,7 @@ export class AddTourneyComponent implements OnInit {
     this.tournament.tourGames.forEach(game => {
       for (let i = 0; i < this.tournament.participants.length; i++) {
         for (let j = i + 1; j < this.tournament.participants.length; j++) {
-          var match = new Match();
+          var match = new Match(null, null, null, null, null, null, null, null, null);
           match.players = [];
           match.bo = game.bo;
           match.games = [];
@@ -77,7 +77,7 @@ export class AddTourneyComponent implements OnInit {
           match.players.push(this.tournament.participants[i]);
 
           for (let i = 1; i <= match.bo; i++) {
-            var ingame = new Game();
+            var ingame = new Game(null, null, null, null);
             ingame.players = match.players;
             ingame.gamename = "Game " + i;
             ingame.played = false;
@@ -89,11 +89,14 @@ export class AddTourneyComponent implements OnInit {
       }
     });
 
-    // persist tournament
+    // randomize match order
     this.tournament.matches = shuffle(this.tournament.matches);
 
+    // persist tournament
+    this._tournamentService.saveTournament(this.tournament);
+
     // go to tournament overview
-    this.router.navigate(['/app-tourney-overview'], {state: {data: this.tournament}});
+    this.router.navigate(['/app-tourney-overview'], { state: { data: this.tournament } });
   }
 
   deleteUser(player: Player) {

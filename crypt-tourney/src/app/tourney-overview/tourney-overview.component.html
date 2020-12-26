@@ -19,14 +19,14 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Username</th>
+                    <th class="text-center">Username</th>
                     <th class="right">Points</th>
                 </tr>
             </thead>
             <tbody *ngFor="let player of orderedPlayers; let i = index">
                 <tr>
                     <td>{{ i + 1 }}</td>
-                    <td>{{ player.username }}</td>
+                    <td class="text-center">{{ player.username }}</td>
                     <td class="right">{{ player.points }}</td>
                 </tr>
             </tbody>
