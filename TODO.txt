@@ -3,7 +3,6 @@ TODO:
 #TOURNAMENT_OVERVIEW
 
 - layout finish
-- persistence
 - show winner / played
 - list games played in tourney
 - find fix for match order (same player starts alot)
@@ -12,3 +11,4 @@ TODO:
 
 - persistence
 - overall layout
+- addTournament nested elements not persisted => constructor with json (see TVH)
