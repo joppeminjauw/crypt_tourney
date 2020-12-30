@@ -13,7 +13,6 @@ mongoose.connect('mongodb://localhost:27017/crypt_tourney');
 
 app.post('/addTourney', (req, res, next) => {
   console.log("made it to addtourney!");
-  console.dir(req.body);
   let newTournament = new Tournament({
     name: req.body.name,
     participants: req.body.participants,
@@ -24,9 +23,18 @@ app.post('/addTourney', (req, res, next) => {
 
   newTournament.save((err, result) => {
     if (err) { console.log(err) }
-    else { res.json(result) }
+    else {
+      res.json(result.id);
+    }
   })
 });
+
+app.put('/updateTourney', (req, res, next) => {
+  Tournament.updateOne(req.body, (err, result) => {
+    if (err) { console.log(err) }
+    else { res.json(result) }
+  })
+})
 
 app.get('/test', (req, res, next) => {
   Tournament.remove({}, function (err) {

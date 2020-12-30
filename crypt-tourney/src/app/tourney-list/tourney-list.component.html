@@ -1,5 +1,5 @@
 <div *ngFor="let tournament of tournaments">
-    <div (click)="goToOverview(tournament.id)" class="tournament">
+    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament">
         <h2>{{ tournament.name }}</h2>
         <h4>Games: {{ gamestring(tournament) }}</h4>
         <h4>Participants: {{ tournament.participants.length }}</h4>

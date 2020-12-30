@@ -36,10 +36,4 @@ export class TourneyListComponent implements OnInit {
 
     return gamestring;
   }
-
-  async goToOverview(id: string) {
-    await this._tournamentService.getById(id).subscribe(tour => {
-      this.router.navigate(['/app-tourney-overview'], { state: { data: tour } });
-    })
-  }
 }

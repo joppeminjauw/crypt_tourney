@@ -22,13 +22,18 @@ export class TournamentService {
     saveTournament(tournament: Tournament) {
         console.log("made it to savetournament!");
         return this.http
-            .post(`${environment.apiUrl}/addTourney`, JSON.stringify(tournament), this.options)
-            .subscribe();
+            .post(`${environment.apiUrl}/addTourney`, JSON.stringify(tournament), this.options);
     }
 
     getById(id: string): Observable<Tournament> {
         return this.http
-        .get(`${environment.apiUrl}/getById/${id}`,)
-        .pipe(map((tournament: any): Tournament => Tournament.fromJSON(tournament)));
+            .get(`${environment.apiUrl}/getById/${id}`,)
+            .pipe(map((tournament: any): Tournament => Tournament.fromJSON(tournament)));
+    }
+
+    updateTournament(tournament: Tournament) {
+        return this.http
+            .put(`${environment.apiUrl}/updateTourney`, JSON.stringify(tournament), this.options)
+            .subscribe();
     }
 }

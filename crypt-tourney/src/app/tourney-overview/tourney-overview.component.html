@@ -3,7 +3,7 @@
     <div class="col-sm-6">
         <h3 class="text-center pt-4">MATCHES</h3>
         <div *ngFor="let match of currentTournament.matches">
-            <div class="mt-2 mb-2 p-2 match text-center" [routerLink]="['/app-match-overview']" [state]="{data: match}">
+            <div class="mt-2 mb-2 p-2 match text-center" [routerLink]="['/app-match-overview', currentTournament.id]" [state]="{data: match}">
                 <h5 class="text-center">{{match.matchname}}: BO{{match.bo}}</h5>
                 <div class="vs row text-center">
                     <p class="col-sm-5 text-center">{{match.players[0].username}}</p>

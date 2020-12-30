@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Tournament } from '../classes/tournament';
+import { TournamentService } from '../services/tournamentservice.service';
 
 @Component({
   selector: 'app-tourney-overview',
@@ -9,13 +10,18 @@ import { Tournament } from '../classes/tournament';
 })
 export class TourneyOverviewComponent implements OnInit {
   currentTournament: Tournament;
+  id: string = this.route.snapshot.params["id"];
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private _tournamentService: TournamentService
   ) { }
 
   ngOnInit(): void {
-    this.currentTournament = history.state.data;
+    console.log("id: " + this.id);
+    this._tournamentService.getById(this.id).subscribe(tour => {
+      this.currentTournament = tour;
+    })
   }
 
   get orderedPlayers() {

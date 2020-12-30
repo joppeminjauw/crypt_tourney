@@ -93,10 +93,9 @@ export class AddTourneyComponent implements OnInit {
     this.tournament.matches = shuffle(this.tournament.matches);
 
     // persist tournament
-    this._tournamentService.saveTournament(this.tournament);
-
-    // go to tournament overview
-    this.router.navigate(['/app-tourney-overview'], { state: { data: this.tournament } });
+    this._tournamentService.saveTournament(this.tournament).subscribe(data => {
+      this.router.navigate(['/app-tourney-overview', { id: data.toString() }]);
+    });
   }
 
   deleteUser(player: Player) {

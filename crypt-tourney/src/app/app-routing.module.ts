@@ -8,7 +8,9 @@ import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.co
 const routes: Routes = [
   {path: '', component: TourneyListComponent},
   {path: 'app-tourney-list', component: TourneyListComponent},
+  {path: 'app-match-overview/:id', component: MatchOverviewComponent},
   {path: 'app-match-overview', component: MatchOverviewComponent},
+  {path: 'app-tourney-overview/:id', component: TourneyOverviewComponent},
   {path: 'app-tourney-overview', component: TourneyOverviewComponent},
   {path: 'app-add-tourney', component: AddTourneyComponent},
 ];
