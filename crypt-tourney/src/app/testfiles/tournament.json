@@ -1,0 +1,356 @@
+[
+    {
+        "_id": "5fec8345a005d04b8849b6d6",
+        "name": "1V1 TOURNAMENT 30/12/2020",
+        "participants": [
+            {
+                "_id": "5fec8345a005d04b8849b6d7",
+                "username": "Djensan",
+                "points": 0
+            },
+            {
+                "_id": "5fec8345a005d04b8849b6d8",
+                "username": "Cubicus",
+                "points": 0
+            },
+            {
+                "_id": "5fec8345a005d04b8849b6d9",
+                "username": "Nightfury",
+                "points": 0
+            }
+        ],
+        "matches": [
+            {
+                "_id": "5fec8345a005d04b8849b6da",
+                "matchname": "Rocket League",
+                "gamename": "Rocket League",
+                "games": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6db",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6dc",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6dd",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6de",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6df",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6e0",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6e1",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6e2",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6e3",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    }
+                ],
+                "players": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6e4",
+                        "username": "Nightfury",
+                        "points": 0
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6e5",
+                        "username": "Djensan",
+                        "points": 0
+                    }
+                ],
+                "bo": 3,
+                "played": false,
+                "score1": 0,
+                "score2": 0
+            },
+            {
+                "_id": "5fec8345a005d04b8849b6e6",
+                "matchname": "schaken",
+                "gamename": "schaken",
+                "games": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6e7",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6e8",
+                                "username": "Cubicus",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6e9",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    }
+                ],
+                "players": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6ea",
+                        "username": "Cubicus",
+                        "points": 0
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6eb",
+                        "username": "Djensan",
+                        "points": 0
+                    }
+                ],
+                "bo": 1,
+                "played": false,
+                "score1": 0,
+                "score2": 0
+            },
+            {
+                "_id": "5fec8345a005d04b8849b6ec",
+                "matchname": "Rocket League",
+                "gamename": "Rocket League",
+                "games": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6ed",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6ee",
+                                "username": "Cubicus",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6ef",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6f0",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6f1",
+                                "username": "Cubicus",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6f2",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6f3",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6f4",
+                                "username": "Cubicus",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6f5",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    }
+                ],
+                "players": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6f6",
+                        "username": "Cubicus",
+                        "points": 0
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6f7",
+                        "username": "Djensan",
+                        "points": 0
+                    }
+                ],
+                "bo": 3,
+                "played": false,
+                "score1": 0,
+                "score2": 0
+            },
+            {
+                "_id": "5fec8345a005d04b8849b6f8",
+                "matchname": "schaken",
+                "gamename": "schaken",
+                "games": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6f9",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b6fa",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b6fb",
+                                "username": "Cubicus",
+                                "points": 0
+                            }
+                        ]
+                    }
+                ],
+                "players": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6fc",
+                        "username": "Nightfury",
+                        "points": 0
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b6fd",
+                        "username": "Cubicus",
+                        "points": 0
+                    }
+                ],
+                "bo": 1,
+                "played": false,
+                "score1": 0,
+                "score2": 0
+            },
+            {
+                "_id": "5fec8345a005d04b8849b6fe",
+                "matchname": "Rocket League",
+                "gamename": "Rocket League",
+                "games": [
+                    {
+                        "_id": "5fec8345a005d04b8849b6ff",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b700",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b701",
+                                "username": "Cubicus",
+                                "points": 0
+                            }
+                        ]
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b702",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b703",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b704",
+                                "username": "Cubicus",
+                                "points": 0
+                            }
+                        ]
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b705",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b706",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b707",
+                                "username": "Cubicus",
+                                "points": 0
+                            }
+                        ]
+                    }
+                ],
+                "players": [
+                    {
+                        "_id": "5fec8345a005d04b8849b708",
+                        "username": "Nightfury",
+                        "points": 0
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b709",
+                        "username": "Cubicus",
+                        "points": 0
+                    }
+                ],
+                "bo": 3,
+                "played": false,
+                "score1": 0,
+                "score2": 0
+            },
+            {
+                "_id": "5fec8345a005d04b8849b70a",
+                "matchname": "schaken",
+                "gamename": "schaken",
+                "games": [
+                    {
+                        "_id": "5fec8345a005d04b8849b70b",
+                        "players": [
+                            {
+                                "_id": "5fec8345a005d04b8849b70c",
+                                "username": "Nightfury",
+                                "points": 0
+                            },
+                            {
+                                "_id": "5fec8345a005d04b8849b70d",
+                                "username": "Djensan",
+                                "points": 0
+                            }
+                        ]
+                    }
+                ],
+                "players": [
+                    {
+                        "_id": "5fec8345a005d04b8849b70e",
+                        "username": "Nightfury",
+                        "points": 0
+                    },
+                    {
+                        "_id": "5fec8345a005d04b8849b70f",
+                        "username": "Djensan",
+                        "points": 0
+                    }
+                ],
+                "bo": 1,
+                "played": false,
+                "score1": 0,
+                "score2": 0
+            }
+        ],
+        "tourGames": [
+            {
+                "_id": "5fec8345a005d04b8849b710",
+                "gamename": "schaken",
+                "bo": 1
+            },
+            {
+                "_id": "5fec8345a005d04b8849b711",
+                "gamename": "Rocket League",
+                "bo": 3
+            }
+        ],
+        "__v": 0
+    }
+]
