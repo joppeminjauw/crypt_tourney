@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Tournament } from '../classes/tournament';
 import { TournamentService } from '../services/tournamentservice.service';
 
@@ -10,7 +11,7 @@ import { TournamentService } from '../services/tournamentservice.service';
 export class TourneyListComponent implements OnInit {
   private _tournaments: Tournament[];
 
-  constructor(private _tournamentService: TournamentService) { }
+  constructor(private _tournamentService: TournamentService, private router: Router) { }
 
   ngOnInit(): void {
     this._tournamentService.tournaments$.subscribe(tourneys => {
@@ -23,4 +24,22 @@ export class TourneyListComponent implements OnInit {
     return this._tournaments;
   }
 
+  gamestring(tournament: Tournament) {
+    var gamestring = "";
+
+    for (let i = 0; i < tournament.tourGames.length; i++) {
+      gamestring += tournament.tourGames[i].gamename;
+      if (i < tournament.tourGames.length - 1) {
+        gamestring += ', ';
+      }
+    }
+
+    return gamestring;
+  }
+
+  async goToOverview(id: string) {
+    await this._tournamentService.getById(id).subscribe(tour => {
+      this.router.navigate(['/app-tourney-overview'], { state: { data: tour } });
+    })
+  }
 }

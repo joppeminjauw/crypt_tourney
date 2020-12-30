@@ -3,6 +3,7 @@ import { Match } from "./match";
 import { TourGame } from "./tourGame";
 
 export class Tournament {
+    id: string;
     name: string;
     participants: Player[];
     matches: Match[];
@@ -44,6 +45,7 @@ export class Tournament {
             winnerObj,
             tourgameObject
         );
+        tournament.id = json._id;
 
         return tournament;
     }

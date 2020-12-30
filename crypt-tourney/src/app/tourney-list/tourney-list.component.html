@@ -1,5 +1,11 @@
 <div *ngFor="let tournament of tournaments">
-    <h2>{{ tournament.name }}</h2>
+    <div (click)="goToOverview(tournament.id)" class="tournament">
+        <h2>{{ tournament.name }}</h2>
+        <h4>Games: {{ gamestring(tournament) }}</h4>
+        <h4>Participants: {{ tournament.participants.length }}</h4>
+        <h4 *ngIf="tournament.winner">Winner: {{ tournament.winner.username }}</h4>
+        <h4 *ngIf="!tournament.winner">Winner: N/A</h4>
+    </div>
 </div>
 
 <button [routerLink]="['/app-add-tourney']">Add Tournament</button>

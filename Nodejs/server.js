@@ -36,8 +36,15 @@ app.get('/test', (req, res, next) => {
 })
 
 app.get('/getTourneys', (req, res, next) => {
-  console.log("made it to getTourneys!");
   Tournament.find((err, result) => {
+    if (err) { console.log(err) }
+    else { res.json(result) }
+  })
+})
+
+app.get('/getById/:id', (req, res, next) => {
+  const id = req.params.id;
+  Tournament.findById(id, (err, result) => {
     if (err) { console.log(err) }
     else { res.json(result) }
   })

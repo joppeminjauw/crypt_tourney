@@ -11,18 +11,24 @@ import { map } from 'rxjs/operators';
 export class TournamentService {
     private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
 
-    constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) { }
 
     get tournaments$(): Observable<Tournament[]> {
         return this.http
-        .get(`${environment.apiUrl}/getTourneys`)
-        .pipe(map((list: any[]): Tournament[] => list.map(Tournament.fromJSON)));
+            .get(`${environment.apiUrl}/getTourneys`)
+            .pipe(map((list: any[]): Tournament[] => list.map(Tournament.fromJSON)));
     }
 
     saveTournament(tournament: Tournament) {
         console.log("made it to savetournament!");
         return this.http
-        .post(`${environment.apiUrl}/addTourney`, JSON.stringify(tournament), this.options)
-        .subscribe();
+            .post(`${environment.apiUrl}/addTourney`, JSON.stringify(tournament), this.options)
+            .subscribe();
+    }
+
+    getById(id: string): Observable<Tournament> {
+        return this.http
+        .get(`${environment.apiUrl}/getById/${id}`,)
+        .pipe(map((tournament: any): Tournament => Tournament.fromJSON(tournament)));
     }
 }
