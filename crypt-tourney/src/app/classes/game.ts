@@ -14,14 +14,16 @@ export class Game {
     }
 
     static fromJSON(json: any) : Game {
-        let playerObject: Player[];
+        let playerObject: Player[] = [];
         let winnerObject: Player;
 
         json.players.forEach(element => {
             playerObject.push(Player.fromJSON(element));
         });
 
-        winnerObject = Player.fromJSON(json.winner);
+        if(json.winner) {
+            winnerObject = Player.fromJSON(json.winner);
+        }
 
         const game = new Game(playerObject, winnerObject, json.gamename, json.played);
 

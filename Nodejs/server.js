@@ -29,7 +29,10 @@ app.post('/addTourney', (req, res, next) => {
 });
 
 app.get('/test', (req, res, next) => {
-  res.json(["Tony","Lisa","Michael","Ginger","Food"]);
+  Tournament.remove({}, function (err) {
+    console.log('collection removed')
+  });
+  res.json(["Tony", "Lisa", "Michael", "Ginger", "Food"]);
 })
 
 app.get('/getTourneys', (req, res, next) => {

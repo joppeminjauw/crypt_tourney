@@ -24,9 +24,9 @@ export class Match {
         this.score2 = score2;
     }
 
-    static fromJSON(json: any) : Match {
-        let gamesObj: Game[];
-        let playerObj: Player[];
+    static fromJSON(json: any): Match {
+        let gamesObj: Game[] = [];
+        let playerObj: Player[] = [];
         let winnerObj: Player;
 
         json.games.forEach(element => {
@@ -37,7 +37,9 @@ export class Match {
             playerObj.push(Player.fromJSON(element));
         })
 
-        winnerObj = Player.fromJSON(json.winner);
+        if (json.winner) {
+            winnerObj = Player.fromJSON(json.winner);
+        }
 
         const match = new Match(
             json.matchname,

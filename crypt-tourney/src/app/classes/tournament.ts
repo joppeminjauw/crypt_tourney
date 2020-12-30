@@ -18,11 +18,13 @@ export class Tournament {
     }
 
     static fromJSON(json: any): Tournament {
-        let playerObject: Player[];
-        let matchObject: Match[];
-        let tourgameObject: TourGame[];
-        let winnerObj = Player.fromJSON(json.winner);
-
+        var playerObject: Player[] = [];
+        var matchObject: Match[] = [];
+        var tourgameObject: TourGame[] = [];
+        var winnerObj: Player;
+        if (json.winner) {
+            winnerObj = Player.fromJSON(json.winner);
+        }
         json.participants.forEach(element => {
             playerObject.push(Player.fromJSON(element));
         });
@@ -33,7 +35,7 @@ export class Tournament {
 
         json.tourGames.forEach(element => {
             tourgameObject.push(TourGame.fromJSON(element));
-        })
+        });
 
         const tournament = new Tournament(
             json.name,
@@ -42,7 +44,7 @@ export class Tournament {
             winnerObj,
             tourgameObject
         );
-        
+
         return tournament;
     }
 }
