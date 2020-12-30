@@ -2,27 +2,27 @@ let mongoose = require('mongoose');
 
 let tournamentSchema = mongoose.Schema({
     name: String,
-    participants: {
+    participants: [{
         username: String,
         points: Number
-    },
-    matches: {
+    }],
+    matches: [{
         matchname: String,
         gamename: String,
-        games: {
-            players: {
+        games: [{
+            players: [{
                 username: String,
                 points: Number
-            },
+            }],
             winner: {
                 username: String,
                 points: Number
             },
-        },
-        players: {
+        }],
+        players: [{
             username: String,
             points: Number
-        },
+        }],
         winner: {
             username: String,
             points: Number
@@ -31,15 +31,15 @@ let tournamentSchema = mongoose.Schema({
         played: Boolean,
         score1: Number,
         score2: Number
-    },
+    }],
     winner: {
         username: String,
         points: Number
     },
-    tourGames: {
+    tourGames: [{
         gamename: String,
         bo: Number
-    }
+    }]
 }, {collection: 'tournaments'});
 let Tournament = mongoose.model('Tournament', tournamentSchema);
 
