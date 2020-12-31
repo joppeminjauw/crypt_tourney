@@ -7,12 +7,13 @@ export class Match {
     games: Game[];
     players: Player[];
     winner: Player;
-    bo: Number;
+    bo: number;
     played: Boolean;
-    score1: Number;
-    score2: Number;
+    score1: number;
+    score2: number;
+    id: String;
 
-    constructor(matchname: string, gamename: string, games: Game[], players: Player[], winner: Player, bo: number, played: Boolean, score1: Number, score2: Number) {
+    constructor(matchname: string, gamename: string, games: Game[], players: Player[], winner: Player, bo: number, played: Boolean, score1: number, score2: number) {
         this.matchname = matchname;
         this.gamename = gamename;
         this.games = games;
@@ -52,6 +53,8 @@ export class Match {
             json.score1,
             json.score2
         );
+
+        match.id = json._id;
 
         return match;
     }

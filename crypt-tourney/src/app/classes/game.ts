@@ -5,6 +5,7 @@ export class Game {
     winner: Player;
     gamename: string;
     played: Boolean;
+    id: String;
 
     constructor(players: Player[], winner: Player, gamename: string, played: Boolean) {
         this.players = players; 
@@ -26,6 +27,7 @@ export class Game {
         }
 
         const game = new Game(playerObject, winnerObject, json.gamename, json.played);
+        game.id = json._id;
 
         return game;
     }

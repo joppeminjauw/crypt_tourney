@@ -2,9 +2,9 @@ import { stringify } from "@angular/compiler/src/util";
 
 export class TourGame {
     gamename: string;
-    bo: Number;
+    bo: number;
 
-    constructor(gamename: string, bo: Number) {
+    constructor(gamename: string, bo: number) {
         this.gamename = gamename;
         this.bo = bo;
     }

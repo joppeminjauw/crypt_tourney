@@ -18,6 +18,8 @@ let tournamentSchema = mongoose.Schema({
                 username: String,
                 points: Number
             },
+            played: Boolean,
+            gamename: String
         }],
         players: [{
             username: String,

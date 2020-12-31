@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TourneyListComponent } from './tourney-list/tourney-list.component';
 import { AddTourneyComponent } from './add-tourney/add-tourney.component';
-import { MatchOverviewComponent } from './match-overview/match-overview.component';
 import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -14,7 +13,6 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppComponent,
     TourneyListComponent,
     AddTourneyComponent,
-    MatchOverviewComponent,
     TourneyOverviewComponent
   ],
   imports: [

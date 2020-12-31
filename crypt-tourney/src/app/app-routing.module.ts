@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AddTourneyComponent } from './add-tourney/add-tourney.component';
-import { MatchOverviewComponent } from './match-overview/match-overview.component';
 import { TourneyListComponent } from './tourney-list/tourney-list.component';
 import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.component';
 
 const routes: Routes = [
   {path: '', component: TourneyListComponent},
   {path: 'app-tourney-list', component: TourneyListComponent},
-  {path: 'app-match-overview/:id', component: MatchOverviewComponent},
-  {path: 'app-match-overview', component: MatchOverviewComponent},
   {path: 'app-tourney-overview/:id', component: TourneyOverviewComponent},
   {path: 'app-tourney-overview', component: TourneyOverviewComponent},
   {path: 'app-add-tourney', component: AddTourneyComponent},
