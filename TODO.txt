@@ -1,14 +1,4 @@
-TODO: 
+TODO:
 
-#TOURNAMENT_OVERVIEW
-
-- layout finish
-- show winner / played
-- list games played in tourney
-- find fix for match order (same player starts alot)
-
-#OVERAL 
-
-- persistence
-- overall layout
-- addTournament nested elements not persisted => constructor with json (see TVH)
+* Overall layout
+* multiple tournaments persistence problem (all the same)
