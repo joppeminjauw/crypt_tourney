@@ -83,4 +83,14 @@ export class TourneyOverviewComponent implements OnInit {
     });
   }
 
+  get orderedMatches() {
+    return this.currentTournament.matches.sort(m => {
+      if(m.played === true) {
+        return 1;
+      } else {
+        return -1
+      }
+    })
+  }
+
 }

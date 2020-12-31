@@ -1,5 +1,7 @@
+<button class="btn btn-primary mt-5" [routerLink]="['/app-add-tourney']">Add Tournament</button>
+<br>
 <div *ngFor="let tournament of tournaments">
-    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament">
+    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament text-center mt-5 mb-5">
         <h2>{{ tournament.name }}</h2>
         <h4>Games: {{ gamestring(tournament) }}</h4>
         <h4>Participants: {{ tournament.participants.length }}</h4>
@@ -7,5 +9,3 @@
         <h4 *ngIf="!tournament.winner">Winner: N/A</h4>
     </div>
 </div>
-
-<button [routerLink]="['/app-add-tourney']">Add Tournament</button>

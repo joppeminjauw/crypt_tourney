@@ -3,7 +3,7 @@
 <div class="row">
     <div class="col-sm-6">
         <h3 class="text-center pt-4">MATCHES</h3>
-        <div *ngFor="let match of currentTournament.matches">
+        <div *ngFor="let match of orderedMatches">
             <div class="mt-2 mb-2 p-2 match text-center" >
                 <h5 class="text-center">{{match.matchname}}: BO{{match.bo}}</h5>
                 <div class="vs row text-center">
