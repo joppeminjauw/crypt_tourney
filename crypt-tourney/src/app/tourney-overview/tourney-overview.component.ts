@@ -25,16 +25,22 @@ export class TourneyOverviewComponent implements OnInit {
     })
   }
 
-  playerWins(matchid: String, gameid: String, playerid: String, scorenr: number) {
+  playerWins(matchid: String, gameid: String, playerid: String, scorenr: number, btn: number) {
     var match = this.currentTournament.matches.find(m => m.id === matchid);
     var game = match.games.find(g => g.id === gameid);
     var player = game.players.find(p => p.id === playerid);
     game.winner = player;
     game.played = true;
+    var id1 = "btn1" + btn;
+    var id2 = "btn2" + btn;
     if (scorenr === 0) {
       match.score1++;
+      document.getElementById(id1).classList.add('green');
+      document.getElementById(id2).classList.add('red');
     } if (scorenr === 1) {
       match.score2++
+      document.getElementById(id1).classList.add('red');
+      document.getElementById(id2).classList.add('green');
     }
 
     this._tournamentService.updateTournament(this.currentTournament);
@@ -67,6 +73,15 @@ export class TourneyOverviewComponent implements OnInit {
     if (check === this.currentTournament.matches.length) {
       this.currentTournament.winner = this.orderedPlayers[0];
       this._tournamentService.updateTournament(this.currentTournament);
+    }
+  }
+
+  showDetail(id: string) {
+    var element = document.getElementById(id);
+    if(!element.classList.contains('hidden')) {
+      element.classList.add('hidden');
+    } else {
+      element.classList.remove('hidden');
     }
   }
 
