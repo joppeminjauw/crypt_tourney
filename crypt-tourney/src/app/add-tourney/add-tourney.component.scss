@@ -1,28 +1,85 @@
-.delete{
-    color: red;
-    &:hover{
+.delete {
+    color: rgba(255, 0, 0, 0.7);
+    &:hover {
         cursor: pointer;
+        color: rgba(255, 0, 0, 1);
+    }
+
+    &:focus{
+        outline: none;
+        box-shadow: none;
     }
 }
 
-.inputfield{
-    
+.btn-add {
+    color: rgba(0, 128, 0, 0.7);
+
+    &:hover{
+        color: rgba(0, 128, 0, 1);
+    }
+
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
 }
 
-.btn-add{
-    color: green;
+.uninput {
+    margin: auto;
+    float: right;
 }
 
-#bo{
-    margin-right: 30%;
-    width: 7%;
+.gameinput {
+    float: right;
 }
 
-#uninput{
-    width: 70%;
-    margin-right: 20%;
+.gametable {
+    td {
+        width: 20%;
+        &:first-child {
+            width: 60% !important;
+        }
+    }
 }
 
-#gameinput{
-    margin-right: 15%;
+.nameheader {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+}
+
+.tourInfo {
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    color: white;
+
+    table {
+        color: white;
+    }
+}
+
+.btn-cancel {
+    color: rgba(255, 0, 0, 0.7);
+
+    &:hover {
+        color: rgba(255, 0, 0, 1);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.btn-make {
+    background-color: rgba(0, 203, 221, 0.8);
+    color: white;
+
+    &:hover {
+        background-color: rgba(0, 203, 221, 1);
+    }
+
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
 }

@@ -38,11 +38,15 @@ export class AddTourneyComponent implements OnInit {
 
     this.matchForm = this._formbuilder.group({
       gamename: ["", Validators.required],
-      bo: ["1", Validators.required]
+      bo: ["BO", Validators.required]
     });
   }
 
   addPlayer() {
+    if (this.playerForm.invalid) {
+      return;
+    }
+
     var player = new Player(null, null);
     player.username = this.pf.username.value;
     player.points = 0;
@@ -51,6 +55,10 @@ export class AddTourneyComponent implements OnInit {
   }
 
   addTourGame() {
+    if (this.matchForm.invalid) {
+      return;
+    }
+    
     var tourgame = new TourGame(null, null);
     tourgame.bo = this.mf.bo.value;
     tourgame.gamename = this.mf.gamename.value;

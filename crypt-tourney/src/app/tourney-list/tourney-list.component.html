@@ -1,11 +1,22 @@
-<button class="btn btn-primary mt-5" [routerLink]="['/app-add-tourney']">Add Tournament</button>
+<button class="btn btn-add mt-5" [routerLink]="['/app-add-tourney']"><i class="fas fa-plus-square fa-2x"></i></button>
+<div class="nameheader mt-5 pt-4 pb-4">
+    <h1 class="text-center"><span class="blue">CRYPTONIC</span> TOURNAMENTS</h1>
+</div>
 <br>
 <div *ngFor="let tournament of tournaments">
-    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament text-center mt-5 mb-5">
-        <h2>{{ tournament.name }}</h2>
-        <h4>Games: {{ gamestring(tournament) }}</h4>
-        <h4>Participants: {{ tournament.participants.length }}</h4>
-        <h4 *ngIf="tournament.winner">Winner: {{ tournament.winner.username }}</h4>
-        <h4 *ngIf="!tournament.winner">Winner: N/A</h4>
+    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament text-center mt-3 mb-5 pb-4 pt-4">
+        <h1 class="mb-3">{{ tournament.name }}</h1>
+        <div class="row">
+            <div class="col-sm-4">
+                <span class="blue">Games</span>: {{ gamestring(tournament) }}
+            </div>
+            <div class="col-sm-4">
+                <span class="blue">Participants</span>: {{ tournament.participants.length }}
+            </div>
+            <div class="col-sm-4">
+                <span *ngIf="tournament.winner"><span class="blue">Winner</span>: {{ tournament.winner.username }}</span>
+                <span *ngIf="!tournament.winner"><span class="blue">Winner</span>: N/A</span>
+            </div>
+        </div>
     </div>
 </div>

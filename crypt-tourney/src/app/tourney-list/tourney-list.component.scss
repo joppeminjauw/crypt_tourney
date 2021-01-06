@@ -1,0 +1,34 @@
+.nameheader{
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+}
+
+.btn-add{
+    color: rgba(0, 203, 221, 0.8);
+    position: absolute;
+    top: 6%;
+
+    &:hover{
+        color: rgba(0, 203, 221, 1);
+    }
+
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.tournament{
+    background-color: rgba(0, 0, 0, 0.85);
+    border-radius: 10px;
+    
+    &:hover{
+        cursor: pointer;
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    &:focus{
+        outline: none;
+        box-shadow: none;
+    }
+}

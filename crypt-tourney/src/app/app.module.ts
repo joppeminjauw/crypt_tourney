@@ -7,13 +7,15 @@ import { TourneyListComponent } from './tourney-list/tourney-list.component';
 import { AddTourneyComponent } from './add-tourney/add-tourney.component';
 import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { TopBorderComponent } from './top-border/top-border.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TourneyListComponent,
     AddTourneyComponent,
-    TourneyOverviewComponent
+    TourneyOverviewComponent,
+    TopBorderComponent
   ],
   imports: [
     BrowserModule,
