@@ -1,34 +1,66 @@
-.nameheader{
+.nameheader {
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
 }
 
-.btn-add{
+.btn-add {
     color: rgba(0, 203, 221, 0.8);
     position: absolute;
     top: 6%;
 
-    &:hover{
+    &:hover {
         color: rgba(0, 203, 221, 1);
     }
 
-    &:focus{
+    &:focus {
         outline: none;
         box-shadow: none;
     }
 }
 
-.tournament{
+.tournament {
     background-color: rgba(0, 0, 0, 0.85);
     border-radius: 10px;
-    
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         background-color: rgba(0, 0, 0, 0.7);
     }
 
-    &:focus{
+    &:focus {
         outline: none;
         box-shadow: none;
     }
+}
+
+.box {
+    width: 300px;
+    margin: 50px auto;
+    background: #00bfb6;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: #fff;
+    font-family: arial;
+    position: absolute;
+    top: 8%;
+    left: 24%;
+    border-radius: 10px;
+
+    input{
+        margin: auto;
+    }
+}
+
+.sb2:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid #00bfb6;
+    border-top: 10px solid #00bfb6;
+    border-bottom: 10px solid transparent;
+    left: -19px;
+    top: 6px;
 }

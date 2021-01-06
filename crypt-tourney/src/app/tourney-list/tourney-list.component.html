@@ -1,14 +1,22 @@
-<button class="btn btn-add mt-5" [routerLink]="['/app-add-tourney']"><i class="fas fa-plus-square fa-2x"></i></button>
+<button class="btn btn-add mt-5" (click)="addTournyClicked()"><i class="fas fa-plus-square fa-2x"></i></button>
+<div *ngIf="atc" class="box sb2">
+    <form [formGroup]="nameform" (ngSubmit)="makeTourney()">
+        <div class="form-inline uninput">
+            <input placeholder="Enter a name" type="text" formControlName="name" class="form-control inputfield">
+            <!-- <small *ngIf="pf.name.errors.required">Name is required!</small> -->
+        </div>
+    </form>
+</div>
 <div class="nameheader mt-5 pt-4 pb-4">
     <h1 class="text-center"><span class="blue">CRYPTONIC</span> TOURNAMENTS</h1>
 </div>
 <br>
 <div *ngFor="let tournament of tournaments">
-    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament text-center mt-3 mb-5 pb-4 pt-4">
+    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament text-center mt-2 mb-3 pb-4 pt-4">
         <h1 class="mb-3">{{ tournament.name }}</h1>
         <div class="row">
             <div class="col-sm-4">
-                <span class="blue">Games</span>: {{ gamestring(tournament) }}
+                <span class="blue">Games</span>: {{ tournament.tourGames.length }}
             </div>
             <div class="col-sm-4">
                 <span class="blue">Participants</span>: {{ tournament.participants.length }}

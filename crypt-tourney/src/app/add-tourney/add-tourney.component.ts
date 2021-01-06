@@ -7,7 +7,7 @@ import { Player } from '../classes/player';
 import { Match } from '../classes/match';
 import { TourGame } from '../classes/tourGame';
 import { Game } from '../classes/game';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-tourney',
@@ -18,14 +18,20 @@ export class AddTourneyComponent implements OnInit {
   tournament: Tournament;
   matchForm: FormGroup;
   playerForm: FormGroup;
+  name: string = this.route.snapshot.params["name"];
 
   constructor(
     private _tournamentService: TournamentService,
     private _formbuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.tournament = new Tournament(null, null, null, null, null);
-    this.tournament.name = "1V1 TOURNAMENT " + formatDate(new Date(), 'dd/MM/yyyy', 'en');
+    if (this.name) {
+      this.tournament.name = this.name;
+    } else {
+      this.tournament.name = "1V1 TOURNAMENT " + formatDate(new Date(), 'dd/MM/yyyy', 'en');
+    }
     this.tournament.matches = [];
     this.tournament.tourGames = [];
     this.tournament.participants = [];
@@ -33,7 +39,7 @@ export class AddTourneyComponent implements OnInit {
 
   ngOnInit(): void {
     this.playerForm = this._formbuilder.group({
-      username: ["", Validators.required]
+      username: ["",]
     });
 
     this.matchForm = this._formbuilder.group({
@@ -58,7 +64,7 @@ export class AddTourneyComponent implements OnInit {
     if (this.matchForm.invalid) {
       return;
     }
-    
+
     var tourgame = new TourGame(null, null);
     tourgame.bo = this.mf.bo.value;
     tourgame.gamename = this.mf.gamename.value;

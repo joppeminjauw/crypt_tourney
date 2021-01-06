@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'app-tourney-list', component: TourneyListComponent},
   {path: 'app-tourney-overview/:id', component: TourneyOverviewComponent},
   {path: 'app-tourney-overview', component: TourneyOverviewComponent},
-  {path: 'app-add-tourney', component: AddTourneyComponent},
+  {path: 'app-add-tourney/:name', component: AddTourneyComponent},
 ];
 
 @NgModule({
