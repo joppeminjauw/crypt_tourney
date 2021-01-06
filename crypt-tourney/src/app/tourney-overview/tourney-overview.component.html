@@ -10,7 +10,7 @@
         <h4 *ngIf="upcomingMatches.length === 0" class="text-center mt-5">There are no upcoming matches</h4>
         <div *ngIf="upcomingMatches.length !== 0">
             <div *ngFor="let tourgame of currentTournament.tourGames">
-                <div class="heading-crypt text-center mt-3 pt-1 pb-1">{{ tourgame.gamename | uppercase }}:BO{{tourgame.bo}}</div>
+                <div class="heading-crypt text-center mt-3 pt-1 pb-1">{{ tourgame.gamename | uppercase }}: BO{{tourgame.bo}}</div>
                 <div *ngIf="getGameMatchesUpcoming(tourgame.gamename).length === 0"
                     class="nomatch mt-1 mb-1 pb-2 pt-2 text-center">All matches of this game have been played</div>
                 <div *ngFor="let match of getGameMatchesUpcoming(tourgame.gamename); let j = index" class="match mt-1 mb-1">
