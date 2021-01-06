@@ -1,4 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
-body{
-    background-image: url('./assets/bg.jpg');
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background: url("./assets/bg.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height: 100%;
+    color: white;
+    font-family: "Allerta Stencil", sans-serif;
+}
+
+.bg-faded {
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    overflow-y: scroll;
+}
+
+.blue {
+    color: rgba(0, 203, 221, 1);
+    font-family: "Allerta Stencil", sans-serif;
+}
+
+button {
+    &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: black;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 203, 221, 0.7);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 125, 137, 0.7);
 }

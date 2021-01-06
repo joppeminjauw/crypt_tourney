@@ -1,29 +1,110 @@
-.vs{
+.vs {
     width: 100%;
     font-size: 1.5em;
 }
 
-.match{
-    border: 1px black solid;
-    &:hover{
-        cursor: pointer;
-    }
-}
-
-.right{
+.right {
     text-align: right;
 }
 
-.hidden{
+.hidden {
     display: none;
 }
 
-.red{
+.red {
     background-color: red;
     border-color: red;
 }
 
-.green{
+.green {
     background-color: green;
     border-color: green;
+}
+
+.heading-crypt {
+    font-size: 1.3em;
+    background-color: rgba(0, 203, 221, 0.5);
+    border-radius: 10px;
+}
+
+.nomatch {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+    font-size: 1.2em;
+}
+
+.match {
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.85);
+    font-size: 1.2em;
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+    .hover {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+.fa-check-circle {
+    color: green;
+}
+
+.fa-times-circle {
+    color: red;
+}
+
+.fa-times {
+    color: grey;
+}
+
+.btn-na {
+    color: rgba(0, 203, 221, 1) !important;
+    &:hover {
+        cursor: pointer;
+        color: green !important;
+    }
+}
+
+.active {
+    background-color: rgba(0, 203, 221, 0.8);
+    color: white;
+}
+
+table {
+    th {
+        border-top: none;
+        color: rgba(0, 203, 221, 1);
+        font-size: 1.4em;
+        font-family: "Allerta Stencil", sans-serif !important;
+    }
+    td {
+        color: white;
+        font-size: 1.2em;
+        width: 33.33%;
+    }
+}
+
+.btn-group {
+    width: 100%;
+    button {
+        color: white;
+        width: 33.33%;
+        font-size: 1.1em;
+
+        &:hover {
+            background-color: rgba(0, 203, 221, 0.5);
+        }
+
+        &:focus {
+            box-shadow: none;
+            outline: none;
+        }
+    }
+
+    #mid {
+        border-left: 1px solid grey;
+        border-right: 1px solid grey;
+    }
 }

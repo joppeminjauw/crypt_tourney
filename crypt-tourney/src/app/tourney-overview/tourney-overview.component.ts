@@ -12,6 +12,9 @@ import { TournamentService } from '../services/tournamentservice.service';
 export class TourneyOverviewComponent implements OnInit {
   currentTournament: Tournament;
   id: string = this.route.snapshot.params["id"];
+  ucMC: boolean;
+  aMC: boolean;
+  rC: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,6 +26,9 @@ export class TourneyOverviewComponent implements OnInit {
     this._tournamentService.getById(this.id).subscribe(tour => {
       this.currentTournament = tour;
     })
+    this.ucMC = true;
+    this.aMC = false;
+    this.rC = false;
   }
 
   playerWins(matchid: String, gameid: String, playerid: String, scorenr: number, btn: number) {
@@ -31,16 +37,10 @@ export class TourneyOverviewComponent implements OnInit {
     var player = game.players.find(p => p.id === playerid);
     game.winner = player;
     game.played = true;
-    var id1 = "btn1" + btn;
-    var id2 = "btn2" + btn;
     if (scorenr === 0) {
       match.score1++;
-      document.getElementById(id1).classList.add('green');
-      document.getElementById(id2).classList.add('red');
     } if (scorenr === 1) {
       match.score2++
-      document.getElementById(id1).classList.add('red');
-      document.getElementById(id2).classList.add('green');
     }
 
     this._tournamentService.updateTournament(this.currentTournament);
@@ -49,7 +49,8 @@ export class TourneyOverviewComponent implements OnInit {
   }
 
   checkMatchStatus(match: Match) {
-    if (match.score1 === (((match.bo - 1) /2) +1)|| match.score2 === (((match.bo - 1) /2) +1)) {
+    if (match.score1 === (((match.bo - 1) / 2) + 1) || match.score2 === (((match.bo - 1) / 2) + 1)) {
+      console.log("match played!")
       match.played = true;
       if (match.score1 > match.score2) {
         match.winner = match.players[0];
@@ -62,10 +63,10 @@ export class TourneyOverviewComponent implements OnInit {
     }
   }
 
-  checkTournamentStatus(){
+  checkTournamentStatus() {
     var check = 0;
     this.currentTournament.matches.forEach(m => {
-      if(m.played === true) {
+      if (m.played === true) {
         check++;
       }
     });
@@ -76,13 +77,38 @@ export class TourneyOverviewComponent implements OnInit {
     }
   }
 
-  showDetail(id: string) {
-    var element = document.getElementById(id);
-    if(!element.classList.contains('hidden')) {
+  showDetail(id: string, name: string) {
+    var fullId = name + id;
+    var element = document.getElementById(fullId);
+    if (!element.classList.contains('hidden')) {
       element.classList.add('hidden');
     } else {
       element.classList.remove('hidden');
     }
+  }
+
+  ovvBtnClicked(id: number) {
+    if (id === 0) {
+      this.ucMC = true;
+      this.rC = false;
+      this.aMC = false;
+    } if (id === 1) {
+      this.ucMC = false;
+      this.rC = false;
+      this.aMC = true;
+    } if (id === 2) {
+      this.ucMC = false;
+      this.rC = true;
+      this.aMC = false;
+    }
+  }
+
+  getGameMatches(name: string) {
+    return this.allMatches.filter(m => m.gamename === name);
+  }
+
+  getGameMatchesUpcoming(name: string) {
+    return this.upcomingMatches.filter(m => m.gamename === name);
   }
 
   get orderedPlayers() {
@@ -98,12 +124,19 @@ export class TourneyOverviewComponent implements OnInit {
     });
   }
 
-  get orderedMatches() {
+  get upcomingMatches(): Match[] {
+    var matches: Match[];
+    matches = this.allMatches.filter(m => m.played == false);
+
+    return matches;
+  }
+
+  get allMatches(): Match[] {
     return this.currentTournament.matches.sort(m => {
-      if(m.played === true) {
-        return 1;
+      if (m.played === true) {
+        return -1;
       } else {
-        return -1
+        return 1;
       }
     })
   }

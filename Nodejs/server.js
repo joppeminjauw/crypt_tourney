@@ -30,6 +30,7 @@ app.post('/addTourney', (req, res, next) => {
 });
 
 app.put('/updateTourney', (req, res, next) => {
+  console.log("made it to update tourney!");
   Tournament.updateOne(req.body, (err, result) => {
     if (err) { console.log(err) }
     else { res.json(result) }

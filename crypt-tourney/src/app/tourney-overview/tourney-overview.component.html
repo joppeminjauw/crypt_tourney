@@ -1,34 +1,90 @@
-<h2 class="text-center mt-5 mb-5">{{ currentTournament.name }}</h2>
+<h2 class="text-center pt-5 pb-5">{{ currentTournament.name }}</h2>
 <button class="btn btn-primary" [routerLink]="['/app-tourney-list']">All Tournaments</button>
-<div class="row">
-    <div class="col-sm-6">
-        <h3 class="text-center pt-4">MATCHES</h3>
-        <div *ngFor="let match of orderedMatches; let j = index">
-            <div class="mt-2 mb-2 p-2 match text-center" (click)="showDetail(j)">
-                <h5 class="text-center">{{match.matchname}}: BO{{match.bo}}</h5>
-                <div class="vs row text-center">
-                    <p class="col-sm-5 text-center">{{match.players[0].username}}</p>
-                    <p class="col-sm-2 text-center">{{match.score1}} - {{match.score2}}</p>
-                    <p class="col-sm-5 text-center">{{match.players[1].username}}</p>
+<div class="btn-group">
+    <button [ngClass]="{'active': ucMC}" class="btn" (click)="ovvBtnClicked(0)">Upcoming Matches</button>
+    <button [ngClass]="{'active': aMC}" class="btn" id="mid" (click)="ovvBtnClicked(1)">All Matches</button>
+    <button [ngClass]="{'active': rC}" class="btn" (click)="ovvBtnClicked(2)">Ranking</button>
+</div>
+<div *ngIf="ucMC" class="row mb-5 mt-4">
+    <div class="col-sm-12">
+        <h4 *ngIf="upcomingMatches.length === 0" class="text-center mt-5">There are no upcoming matches</h4>
+        <div *ngIf="upcomingMatches.length !== 0">
+            <div *ngFor="let tourgame of currentTournament.tourGames">
+                <div class="heading-crypt text-center mt-3 pt-1 pb-1">{{ tourgame.gamename | uppercase }}:BO{{tourgame.bo}}</div>
+                <div *ngIf="getGameMatchesUpcoming(tourgame.gamename).length === 0"
+                    class="nomatch mt-1 mb-1 pb-2 pt-2 text-center">All matches of this game have been played</div>
+                <div *ngFor="let match of getGameMatchesUpcoming(tourgame.gamename); let j = index" class="match mt-1 mb-1">
+                    <div (click)="showDetail(j, tourgame.gamename)" class="row pt-2 pb-2 hover">
+                        <span class="col-sm-5 text-center" [ngClass]="{'blue': (match.played && match.winner.username === match.players[0].username)}">{{match.players[0].username}}</span>
+                        <span class="col-sm-2 text-center">{{match.score1}} - {{match.score2}}</span>
+                        <span class="col-sm-5 text-center" [ngClass]="{'blue': (match.played && match.winner.username === match.players[1].username)}">{{match.players[1].username}}</span>
+                    </div>
+                    <div class="hidden mt-3" id="{{tourgame.gamename + j}}">
+                        <div *ngFor="let game of match.games; let k = index">
+                            <div class="row text-center">
+                                <p class="col-sm-5 text-center">
+                                    <i *ngIf="game.winner && game.winner.username === game.players[0].username"
+                                        class="far fa-check-circle fa-2x btn-won"></i>
+                                    <i *ngIf="game.winner && game.winner.username === game.players[1].username"
+                                        class="far fa-times-circle fa-2x btn-lost"></i>
+                                    <i *ngIf="match.played && !game.played" class="fas fa-times fa-2x"></i>
+                                    <i *ngIf="!match.winner && !game.winner"
+                                        (click)="playerWins(match.id, game.id, game.players[0].id, 0, k)"
+                                        class="fas fa-check-circle fa-2x btn-na"></i>
+                                </p>
+                                <p class="col-sm-2 text-center">{{game.gamename}}</p>
+                                <p class="col-sm-5 text-center">
+                                    <i *ngIf="game.winner && game.winner.username === game.players[1].username"
+                                        class="far fa-check-circle fa-2x btn-won"></i>
+                                    <i *ngIf="game.winner && game.winner.username === game.players[0].username"
+                                        class="far fa-times-circle fa-2x btn-lost"></i>
+                                    <i *ngIf="match.played && !game.played" class="fas fa-times fa-2x"></i>
+                                    <i *ngIf="!match.winner && !game.winner"
+                                        (click)="playerWins(match.id, game.id, game.players[1].id, 1, k)"
+                                        class="fas fa-check-circle fa-2x btn-na"></i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="hidden" id="{{j}}">
-                <div *ngFor="let game of match.games; let k = index">
-                    <div class="game text-center mb-3">
-                        <h4 class="text-center">{{ game.gamename }}</h4>
+        </div>
+    </div>
+</div>
+<div *ngIf="aMC" class="row mb-5 mt-4">
+    <div class="col-sm-12">
+        <div *ngFor="let tourgame of currentTournament.tourGames">
+            <div class="heading-crypt text-center mt-3 pt-1 pb-1">{{ tourgame.gamename | uppercase }}: BO{{ tourgame.bo
+                }}</div>
+            <div *ngFor="let match of getGameMatches(tourgame.gamename); let j = index" class="match mt-1 mb-1">
+                <div (click)="showDetail(j, tourgame.gamename)" class="row pt-2 pb-2 hover">
+                    <span class="col-sm-5 text-center" [ngClass]="{'blue': (match.played && match.winner.username === match.players[0].username)}">{{match.players[0].username}}</span>
+                    <span class="col-sm-2 text-center">{{match.score1}} - {{match.score2}}</span>
+                    <span class="col-sm-5 text-center" [ngClass]="{'blue': (match.played && match.winner.username === match.players[1].username)}">{{match.players[1].username}}</span>
+                </div>
+                <div class="hidden mt-3" id="{{tourgame.gamename + j}}">
+                    <div *ngFor="let game of match.games; let k = index">
                         <div class="row text-center">
                             <p class="col-sm-5 text-center">
-                                <button class="btn btn-primary" id="{{'btn1' + k}}" [disabled]="game.played || match.played"
-                                    (click)="playerWins(match.id, game.id, game.players[0].id, 0, k)">
-                                    {{game.players[0].username}}
-                                </button>
+                                <i *ngIf="game.winner && game.winner.username === game.players[0].username"
+                                    class="far fa-check-circle fa-2x btn-won"></i>
+                                <i *ngIf="game.winner && game.winner.username === game.players[1].username"
+                                    class="far fa-times-circle fa-2x btn-lost"></i>
+                                <i *ngIf="match.played && !game.played" class="fas fa-times fa-2x"></i>
+                                <i *ngIf="!match.winner && !game.winner"
+                                    (click)="playerWins(match.id, game.id, game.players[0].id, 0, k)"
+                                    class="fas fa-check-circle fa-2x btn-na"></i>
                             </p>
-                            <p class="col-sm-2 text-center">VS</p>
+                            <p class="col-sm-2 text-center">{{game.gamename}}</p>
                             <p class="col-sm-5 text-center">
-                                <button class="btn btn-primary" id="{{'btn2' + k}}" [disabled]="game.played || match.played"
-                                    (click)="playerWins(match.id, game.id, game.players[1].id, 1, k)">
-                                    {{game.players[1].username}}
-                                </button>
+                                <i *ngIf="game.winner && game.winner.username === game.players[1].username"
+                                    class="far fa-check-circle fa-2x btn-won"></i>
+                                <i *ngIf="game.winner && game.winner.username === game.players[0].username"
+                                    class="far fa-times-circle fa-2x btn-lost"></i>
+                                <i *ngIf="match.played && !game.played" class="fas fa-times fa-2x"></i>
+                                <i *ngIf="!match.winner && !game.winner"
+                                    (click)="playerWins(match.id, game.id, game.players[1].id, 1, k)"
+                                    class="fas fa-check-circle fa-2x btn-na"></i>
                             </p>
                         </div>
                     </div>
@@ -36,8 +92,9 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-6">
-        <h3 class="text-center pt-4">RANKING</h3>
+</div>
+<div *ngIf="rC" class="row mb-5 mt-4">
+    <div class="col-sm-12">
         <table class="table table-row">
             <thead>
                 <tr>
