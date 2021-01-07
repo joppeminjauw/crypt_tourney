@@ -39,7 +39,7 @@ export class AddTourneyComponent implements OnInit {
 
   ngOnInit(): void {
     this.playerForm = this._formbuilder.group({
-      username: ["",]
+      username: ["", Validators.required]
     });
 
     this.matchForm = this._formbuilder.group({

@@ -1,6 +1,6 @@
 <button class="btn btn-back" [routerLink]="['/app-tourney-list']"><i class="fas fa-arrow-alt-circle-left fa-2x"></i></button>
 <div class="nameheader mt-5 pt-4 pb-4">
-    <h2 class="text-center">{{ currentTournament.name }}</h2>
+    <h2 class="text-center blue">{{ currentTournament.name | uppercase }}</h2>
 </div>
 <div class="btn-group menu">
     <button [ngClass]="{'active': ucMC}" class="btn" (click)="ovvBtnClicked(0)">Upcoming Matches</button>

@@ -20,7 +20,7 @@ export class TourneyListComponent implements OnInit {
 
   ngOnInit(): void {
     this.nameform = this._formbuilder.group({
-      name: ["", Validators.required]
+      name: ["",]
     })
     this.aTC = false;
     this._tournamentService.tournaments$.subscribe(tourneys => {

@@ -1,4 +1,3 @@
 TODO:
 
-* Overall layout
-* multiple tournaments persistence problem (all the same)
+- Persistence problem with multiple tournaments!

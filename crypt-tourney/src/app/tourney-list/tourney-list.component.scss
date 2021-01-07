@@ -6,7 +6,7 @@
 .btn-add {
     color: rgba(0, 203, 221, 0.8);
     position: absolute;
-    top: 6%;
+    top: 0.5%;
 
     &:hover {
         color: rgba(0, 203, 221, 1);
@@ -36,14 +36,14 @@
 .box {
     width: 300px;
     margin: 50px auto;
-    background: #00bfb6;
+    background: rgba(0, 203, 221, 1);
     padding: 20px;
     text-align: center;
     font-weight: 900;
     color: #fff;
     font-family: arial;
     position: absolute;
-    top: 8%;
+    top: 2%;
     left: 24%;
     border-radius: 10px;
 
@@ -58,8 +58,8 @@
     height: 0px;
     position: absolute;
     border-left: 10px solid transparent;
-    border-right: 10px solid #00bfb6;
-    border-top: 10px solid #00bfb6;
+    border-right: 10px solid rgba(0, 203, 221, 1);
+    border-top: 10px solid rgba(0, 203, 221, 1);
     border-bottom: 10px solid transparent;
     left: -19px;
     top: 6px;
