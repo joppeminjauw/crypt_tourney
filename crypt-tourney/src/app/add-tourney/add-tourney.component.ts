@@ -71,6 +71,7 @@ export class AddTourneyComponent implements OnInit {
     this.tournament.tourGames.push(tourgame);
     this.mf.bo.reset();
     this.mf.gamename.reset();
+    this.mf.bo.setValue("BO");
   }
 
   makeTourney() {

@@ -23,14 +23,15 @@
                             </tr>
                         </ng-container>
                         <tr>
-                            <td class="form-inline uninput">
+                            <td class="form-group uninput">
                                 <input placeholder="Add user" type="text" formControlName="username"
                                     class="form-control inputfield">
                                 <!-- <small *ngIf="pf.username.errors.required">Username is required!</small> -->
-                                <button type="submit" class="btn btn-add float-right"><i
-                                        class="fas fa-plus-square fa-2x"></i></button>
+                        
                             </td>
                             <td>
+                                <button type="submit" class="btn btn-add float-right"><i
+                                    class="fas fa-plus-square fa-2x"></i></button>
                             </td>
                         </tr>
                     </tbody>
@@ -48,7 +49,7 @@
                     <thead>
                         <tr>
                             <th class="blue">Game</th>
-                            <th class="blue">BO</th>
+                            <th class="blue text-center">BO</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -56,7 +57,7 @@
                         <ng-container *ngFor="let tourgame of tournament.tourGames">
                             <tr>
                                 <td>{{ tourgame.gamename }}</td>
-                                <td>{{ tourgame.bo }}</td>
+                                <td class="text-center">{{ tourgame.bo }}</td>
                                 <td class="delete"><i (click)="deleteGame(tourgame)"
                                         class="fas fa-trash-alt float-right"></i>
                                 </td>
@@ -68,7 +69,7 @@
                                     class="form-control inputfield">
                                 <!-- <small *ngIf="pf.username.errors.required">Gamename is required!</small> -->
                             </td>
-                            <td class="form-group">
+                            <td class="form-group text-center">
                                 <select class="form-control text-center" formControlName="bo" name="bo" id="bo">
                                     <option value="BO" selected>--BO--</option>
                                     <option value="1">1</option>

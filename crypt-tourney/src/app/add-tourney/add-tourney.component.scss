@@ -32,6 +32,10 @@
     width: 70%;
     margin: auto;
 
+    th{
+        border-top: none;
+    }
+
     input {
         width: 65%;
         border-top: none;
@@ -46,6 +50,10 @@
 .gametable {
     width: 70%;
     margin: auto;
+
+    th{
+        border-top: none;
+    }
 
     td {
         width: 20%;
