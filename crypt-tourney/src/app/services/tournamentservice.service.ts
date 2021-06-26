@@ -9,31 +9,31 @@ import { map } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class TournamentService {
-    private options = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    private URL: string = `${environment.apiUrl}/tournament`
 
     constructor(private http: HttpClient) { }
 
     get tournaments$(): Observable<Tournament[]> {
         return this.http
-            .get(`${environment.apiUrl}/getTourneys`)
+            .get(`${this.URL}/all`)
             .pipe(map((list: any[]): Tournament[] => list.map(Tournament.fromJSON)));
     }
 
     saveTournament(tournament: Tournament) {
-        console.log("made it to savetournament!");
         return this.http
-            .post(`${environment.apiUrl}/addTourney`, JSON.stringify(tournament), this.options);
+            .post(`${this.URL}/add`, tournament)
+            .pipe(map((tour: any): Tournament => Tournament.fromJSON(tour)));
     }
 
-    getById(id: string): Observable<Tournament> {
+    getById(id: number): Observable<Tournament> {
         return this.http
-            .get(`${environment.apiUrl}/getById/${id}`,)
+            .get(`${this.URL}/${id}`,)
             .pipe(map((tournament: any): Tournament => Tournament.fromJSON(tournament)));
     }
 
     updateTournament(tournament: Tournament) {
         return this.http
-            .put(`${environment.apiUrl}/updateTourney`, JSON.stringify(tournament), this.options)
-            .subscribe();
+            .post(`${this.URL}/update`, tournament)
+            .pipe(map((tournament: any): Tournament => Tournament.fromJSON(tournament)));
     }
 }

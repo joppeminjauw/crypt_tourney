@@ -1,3 +1,4 @@
+import { CryptUser } from "./cryptuser";
 import { Player } from "./player";
 
 export class Game {
@@ -27,7 +28,7 @@ export class Game {
         }
 
         const game = new Game(playerObject, winnerObject, json.gamename, json.played);
-        game.id = json._id;
+        game.id = json.id;
 
         return game;
     }

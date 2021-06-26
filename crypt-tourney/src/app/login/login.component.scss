@@ -1,0 +1,79 @@
+$blue:rgba(0, 203, 221, 1);
+$red: #fd4d4d;
+$bg-dark: #0b0e11;
+$discord: 	rgb(114, 137, 218);
+
+.login {
+    margin: auto;
+    margin-top: 10%!important;
+    background-color: #151a21;
+    border-radius: 10px;    
+    font-size: 0.8em !important;
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    form {
+
+        input {
+            border: none;
+            color: white;
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+
+    button {
+        font-size: 0.9em;
+    }
+}
+
+.register-buttons {
+
+    button {
+        &:focus {
+            box-shadow: none !important;
+        }
+    }
+}
+
+.register-option {
+    background-color: #242c37;
+    width: 100%;
+    font-size: 1.1em !important;
+}
+
+.register-crypt {
+    background-color: $red;
+    color: white;
+    width: 100%;
+    font-size: 1.1em !important;
+    &:hover {
+        color: white;
+        background-color: #dd4141;
+    }
+}
+
+.discord {
+    background-color: $discord;
+    color: white;
+
+    img {
+        width: 5%; 
+    }
+
+    &:hover {
+        background-color: rgb(105, 123, 190);
+    }
+}
+
+.crypt-error {
+    border-radius: 10px;
+}
+
+.login-hr {
+    // border-color: $blue;
+    width: 100%;
+}

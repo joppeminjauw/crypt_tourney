@@ -1,15 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+$blue:rgba(0, 203, 221, 1);
+$red: #fd4d4d;
+$bg-dark: #0b0e11;
+
 html {
     height: 100%;
     margin: 0;
 }
 
 body {
-    background: url("./assets/bg.jpg") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+    // background: url("./assets/bg.jpg") no-repeat center center fixed;
+    // -webkit-background-size: cover;
+    // -moz-background-size: cover;
+    // background-size: cover;
+    // -o-background-size: cover;
+    background-color: $bg-dark;
     height: 100%;
     color: white;
     font-family: "Allerta Stencil", sans-serif;
@@ -48,4 +53,14 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(0, 125, 137, 0.7);
+}
+
+.btn-crypt-red {
+    background-color: $red;
+    color: white;
+
+    &:hover {
+        color: white;
+        background-color: #dd4141;
+    }
 }

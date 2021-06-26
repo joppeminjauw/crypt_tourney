@@ -8,6 +8,10 @@ import { AddTourneyComponent } from './add-tourney/add-tourney.component';
 import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TopBorderComponent } from './top-border/top-border.component';
+import { LoginComponent } from './login/login.component';
+import { FooterComponent } from './footer/footer.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +19,11 @@ import { TopBorderComponent } from './top-border/top-border.component';
     TourneyListComponent,
     AddTourneyComponent,
     TourneyOverviewComponent,
-    TopBorderComponent
+    TopBorderComponent,
+    LoginComponent,
+    FooterComponent,
+    HomepageComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

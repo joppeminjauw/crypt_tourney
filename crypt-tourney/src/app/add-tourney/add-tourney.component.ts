@@ -34,7 +34,7 @@ export class AddTourneyComponent implements OnInit {
     }
     this.tournament.matches = [];
     this.tournament.tourGames = [];
-    this.tournament.participants = [];
+    this.tournament.players = [];
   }
 
   ngOnInit(): void {
@@ -53,10 +53,10 @@ export class AddTourneyComponent implements OnInit {
       return;
     }
 
-    var player = new Player(null, null);
+    var player = new Player(null, null, null, null);
     player.username = this.pf.username.value;
     player.points = 0;
-    this.tournament.participants.push(player);
+    this.tournament.players.push(player);
     this.pf.username.reset();
   }
 
@@ -77,8 +77,8 @@ export class AddTourneyComponent implements OnInit {
   makeTourney() {
     // make tournament / matches / games
     this.tournament.tourGames.forEach(game => {
-      for (let i = 0; i < this.tournament.participants.length; i++) {
-        for (let j = i + 1; j < this.tournament.participants.length; j++) {
+      for (let i = 0; i < this.tournament.players.length; i++) {
+        for (let j = i + 1; j < this.tournament.players.length; j++) {
           var match = new Match(null, null, null, null, null, null, null, null, null);
           match.players = [];
           match.bo = game.bo;
@@ -88,8 +88,8 @@ export class AddTourneyComponent implements OnInit {
           match.matchname = game.gamename;
           match.gamename = game.gamename;
           match.played = false;
-          match.players.push(this.tournament.participants[j]);
-          match.players.push(this.tournament.participants[i]);
+          match.players.push(this.tournament.players[j]);
+          match.players.push(this.tournament.players[i]);
 
           for (let i = 1; i <= match.bo; i++) {
             var ingame = new Game(null, null, null, null);
@@ -114,8 +114,8 @@ export class AddTourneyComponent implements OnInit {
   }
 
   deleteUser(player: Player) {
-    var index = this.tournament.participants.indexOf(player);
-    this.tournament.participants.splice(index, 1);
+    var index = this.tournament.players.indexOf(player);
+    this.tournament.players.splice(index, 1);
   }
 
   deleteGame(tourgame: TourGame) {

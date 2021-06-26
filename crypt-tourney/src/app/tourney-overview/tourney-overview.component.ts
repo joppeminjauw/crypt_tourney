@@ -11,7 +11,7 @@ import { TournamentService } from '../services/tournamentservice.service';
 })
 export class TourneyOverviewComponent implements OnInit {
   currentTournament: Tournament;
-  id: string = this.route.snapshot.params["id"];
+  id: number = +this.route.snapshot.params["id"];
   ucMC: boolean;
   aMC: boolean;
   rC: boolean;
@@ -57,7 +57,7 @@ export class TourneyOverviewComponent implements OnInit {
       } else {
         match.winner = match.players[1];
       }
-      this.currentTournament.participants.find(p => p.username === match.winner.username).points++;
+      this.currentTournament.players.find(p => p.username === match.winner.username).points++;
       this._tournamentService.updateTournament(this.currentTournament);
       this.checkTournamentStatus();
     }
@@ -112,7 +112,7 @@ export class TourneyOverviewComponent implements OnInit {
   }
 
   get orderedPlayers() {
-    return this.currentTournament.participants.sort((p1, p2) => {
+    return this.currentTournament.players.sort((p1, p2) => {
       if (p1.points > p2.points) {
         return -1;
       }

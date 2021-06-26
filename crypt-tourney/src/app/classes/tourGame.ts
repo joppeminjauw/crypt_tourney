@@ -1,6 +1,7 @@
 import { stringify } from "@angular/compiler/src/util";
 
 export class TourGame {
+    id: number
     gamename: string;
     bo: number;
 
@@ -11,6 +12,7 @@ export class TourGame {
 
     static fromJSON(json: any): TourGame {
         const tourGame = new TourGame(json.gamename, json.bo);
+        tourGame.id = json.id
 
         return tourGame;
     }
