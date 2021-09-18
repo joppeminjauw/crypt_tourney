@@ -1,7 +1,6 @@
 $blue:rgba(0, 203, 221, 1);
 $red: #fd4d4d;
-$bg-dark:#0b0e11;
-$discord:rgb(114, 137, 218);
+$bg-dark: #0b0e11;
 
 .login {
     margin: auto;
@@ -53,19 +52,6 @@ $discord:rgb(114, 137, 218);
     &:hover {
         color: white;
         background-color: #dd4141;
-    }
-}
-
-.discord {
-    background-color: $discord;
-    color: white;
-
-    img {
-        width: 5%; 
-    }
-
-    &:hover {
-        background-color: rgb(105, 123, 190);
     }
 }
 

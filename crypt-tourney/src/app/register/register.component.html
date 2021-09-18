@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="login col-sm-6 p-5">
+        <div class="alert-danger p-3 text-center crypt-error" *ngIf="error">{{ error_message }}</div>
+        <div class="alert-success p-3 text-center" *ngIf="success">Successfuly registered. You are automatically being logged in!</div>
+        <form [formGroup]="registerForm" class="form p-3 pb-4" (ngSubmit)="register()">
+            <h2 class="login-welcome mb-4 blue">Register</h2>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="firstname">Firstname</label>
+                    <input type="text" placeholder="Firstname" class="form-control register-option" id="firstname" formControlName="firstname">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="lastname">Lastname</label>
+                    <input type="text" placeholder="Lastname" class="form-control register-option" id="lastname" formControlName="lastname">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <label for="username">Username</label>
+                    <input type="text" placeholder="Username" class="form-control register-option" id="username" formControlName="username">
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="dob">Date of birth</label>
+                    <input type="date" class="form-control register-option" id="dob" formControlName="dob">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="text" placeholder="E-mail" class="form-control register-option" id="email" formControlName="email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" placeholder="Password" class="form-control register-option" id="password" formControlName="password">
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm password</label>
+                <input type="password" placeholder="Confirm password" class="form-control register-option" id="confirmPassword" formControlName="confirmPassword">
+            </div>
+            <button [disabled]="registerForm.invalid" type="submit" class="btn btn-crypt-blue float-right">Register</button>
+        </form>
+        <div class="login-divider d-flex mt-4">
+            <hr class="login-hr">
+            <h6 class="blue text-center"> or </h6>
+            <hr class="login-hr">
+        </div>
+        <div class="register-buttons p-3">
+            <button [routerLink]="['/app-login']" class="btn register-crypt crypt p-3">Already have an account</button>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

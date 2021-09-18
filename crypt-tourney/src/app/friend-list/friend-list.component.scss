@@ -1,0 +1,34 @@
+$blue:rgba(0, 203, 221, 1);
+$red: #fd4d4d;
+$bg-dark: #0b0e11;
+
+
+.friendslist {
+    border-left: 1px solid $blue;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    .delete {
+        color: $red;
+
+        &:hover {
+            color: red;
+            cursor: pointer;
+        }
+    }
+
+    h6 {
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    .fa-user-plus {
+        color: $blue;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+}

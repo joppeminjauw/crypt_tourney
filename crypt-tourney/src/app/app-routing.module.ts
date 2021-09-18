@@ -4,13 +4,15 @@ import { AddTourneyComponent } from './add-tourney/add-tourney.component';
 import { AuthGuard } from './authentication/auth.guard';
 import { HomepageComponent } from './homepage/homepage.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { TourneyListComponent } from './tourney-list/tourney-list.component';
 import { TourneyOverviewComponent } from './tourney-overview/tourney-overview.component';
 
 const routes: Routes = [
   {path: 'app-login', component: LoginComponent},
+  {path: 'app-register', component: RegisterComponent},
+  {path: '', component: HomepageComponent, canActivate: [AuthGuard]},
   {path: 'app-homepage', component: HomepageComponent, canActivate: [AuthGuard]},
-  {path: '', component: TourneyListComponent, canActivate: [AuthGuard]},
   {path: 'app-tourney-list', component: TourneyListComponent, canActivate: [AuthGuard]},
   {path: 'app-tourney-overview/:id', component: TourneyOverviewComponent, canActivate: [AuthGuard]},
   {path: 'app-tourney-overview', component: TourneyOverviewComponent, canActivate: [AuthGuard]},

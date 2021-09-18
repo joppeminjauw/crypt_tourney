@@ -1,5 +1,8 @@
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+
 /* You can add global styles to this file, and also import other style files */
-$blue:rgba(0, 203, 221, 1);
+$blue: rgba(0, 203, 221, 1);
 $red: #fd4d4d;
 $bg-dark: #0b0e11;
 
@@ -14,16 +17,18 @@ body {
     // -moz-background-size: cover;
     // background-size: cover;
     // -o-background-size: cover;
-    background-color: $bg-dark;
+    background-color: $bg-dark !important;
     height: 100%;
-    color: white;
-    font-family: "Allerta Stencil", sans-serif;
+    color: rgb(97, 85, 85) !important;
+    font-family: "Allerta Stencil", sans-serif !important;
+    overflow-x: hidden !important;
 }
 
 .bg-faded {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .blue {
@@ -39,7 +44,8 @@ button {
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 7px;
+    height: 7px;
 }
 
 ::-webkit-scrollbar-track {
@@ -56,11 +62,59 @@ button {
 }
 
 .btn-crypt-red {
-    background-color: $red;
-    color: white;
+    background-color: $red !important;
+    color: white !important;
 
     &:hover {
         color: white;
         background-color: #dd4141;
+        cursor: pointer;
+    }
+}
+
+.btn-crypt-blue {
+    background-color: rgba(1, 153, 167, 0.7) !important;
+    color: white !important;
+
+    &:hover {
+        color: white !important;
+        background-color: $blue !important;
+        cursor: pointer;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: white;
+}
+
+.modal-header {
+    border-color: #242c37;
+}
+
+.modal-footer {
+    border-color: #242c37;
+}
+
+.modal-content {
+    background-color: #151a21;
+    border-radius: 10px;
+
+    input {
+        border: none;
+        color: white !important;
+        background-color: #242c37;
+        width: 100%;
+        font-size: 1.1em !important;
+
+        &:focus {
+            color: white !important;
+            box-shadow: none;
+            background-color: #242c37;
+        }
     }
 }

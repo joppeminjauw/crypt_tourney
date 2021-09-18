@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
     this.accountService.login(login).subscribe(user => {
       this._loggedUser = user
       if (user.authenticated) {
-        console.log("made it in localstorgage pesrist")
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.router.navigate(['/app-homepage'])
       } else {
@@ -53,7 +52,6 @@ export class LoginComponent implements OnInit {
   set_error_user(user: CryptUser) {
     this._error_message = user.err_reason
     this.error = true
-    console.log(this._error_message)
   }
 
   get loggedUser() {

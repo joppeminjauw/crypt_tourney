@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Tournament } from '../classes/tournament';
 import { TournamentService } from '../services/tournamentservice.service';
 
@@ -12,42 +13,37 @@ import { TournamentService } from '../services/tournamentservice.service';
 export class TourneyListComponent implements OnInit {
   private _tournaments: Tournament[];
   nameform: FormGroup;
-  private aTC: boolean;
 
   constructor(private _tournamentService: TournamentService,
     private _router: Router,
-    private _formbuilder: FormBuilder) { }
+    private _formbuilder: FormBuilder,
+    private _modalService: NgbModal) { }
 
   ngOnInit(): void {
     this.nameform = this._formbuilder.group({
       name: ["",]
     })
-    this.aTC = false;
     this._tournamentService.tournaments$.subscribe(tourneys => {
       this._tournaments = tourneys;
-      console.log(tourneys);
     })
-  }
-
-  get atc() {
-    return this.aTC;
-  }
+  } 
 
   get n() {
     return this.nameform.controls;
   }
 
-  makeTourney() {
-    var name = this.n.name.value;
-    this._router.navigate(['/app-add-tourney', name]);
+  openModal(content) {
+    this._modalService.open(content, {
+      ariaLabelledBy: 'modal-basic-title',
+      modalDialogClass: 'crypt-modal',
+      size: 'sm'
+    })
   }
 
-  addTournyClicked() {
-    if(this.aTC) {
-      this.aTC = false;
-    } else{
-      this.aTC = true;
-    }
+  makeTourney() {
+    var name = this.n.name.value;
+    this._modalService.dismissAll()
+    this._router.navigate(['/app-add-tourney', name]);
   }
 
   get tournaments() {

@@ -2,7 +2,7 @@
     <div class="login col-sm-6 p-5">
         <div class="alert-danger p-3 text-center crypt-error" *ngIf="error">{{ error_message }}</div>
         <form [formGroup]="loginForm" class="form p-3 pb-4" (ngSubmit)="login()">
-            <h2 class="login-welcome mb-4">Welcome</h2>
+            <h2 class="login-welcome mb-4 blue">Welcome</h2>
             <div class="form-group">
                 <label for="username">Username</label>
                 <input type="text" placeholder="Username or email" class="form-control register-option" id="username" formControlName="username">
@@ -11,16 +11,16 @@
                 <label for="password">Password</label>
                 <input type="password" placeholder="Password" class="form-control register-option" id="password" formControlName="password">
             </div>
-            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-crypt-red float-right">Login</button>
+            <button [disabled]="loginForm.invalid" type="submit" class="btn btn-crypt-blue float-right">Login</button>
         </form>
-        <div class="login-divider d-flex mt-4 p-">
+        <div class="login-divider d-flex mt-4">
             <hr class="login-hr">
             <h6 class="blue text-center"> or </h6>
             <hr class="login-hr">
         </div>
         <div class="register-buttons p-3">
             <button class="btn register-option discord p-3 mb-2">Discord</button>
-            <button class="btn register-crypt crypt p-3">Register here</button>
+            <button class="btn register-crypt crypt p-3" [routerLink]="['/app-register']">Register here</button>
         </div>
     </div>
 </div>

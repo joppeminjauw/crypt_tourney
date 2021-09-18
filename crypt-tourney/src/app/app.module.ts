@@ -12,6 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './header/header.component';
+import { RegisterComponent } from './register/register.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FriendListComponent } from './friend-list/friend-list.component';
 
 @NgModule({
   declarations: [
@@ -23,13 +26,16 @@ import { HeaderComponent } from './header/header.component';
     LoginComponent,
     FooterComponent,
     HomepageComponent,
-    HeaderComponent
+    HeaderComponent,
+    RegisterComponent,
+    FriendListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

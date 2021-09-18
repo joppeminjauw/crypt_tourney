@@ -1,14 +1,6 @@
-<button class="btn btn-add mt-5" (click)="addTournyClicked()"><i class="fas fa-plus-square fa-2x"></i></button>
-<div *ngIf="atc" class="box sb2">
-    <form [formGroup]="nameform" (ngSubmit)="makeTourney()">
-        <div class="form-inline uninput">
-            <input placeholder="Enter a name" type="text" formControlName="name" class="form-control inputfield">
-            <!-- <small *ngIf="pf.name.errors.required">Name is required!</small> -->
-        </div>
-    </form>
-</div>
-<div class="nameheader mt-5 pt-4 pb-4">
-    <h1 class="text-center"><span class="blue">CRYPTONIC</span> TOURNAMENTS</h1>
+<button class="btn btn-add mt-5" (click)="openModal(addTournament)"><i class="fas fa-plus-square fa-2x"></i></button>
+<div class="pb-4">
+    <h3 class="text-center">MY <span class="blue">TOURNAMENTS</span></h3>
 </div>
 <br>
 <div *ngFor="let tournament of tournaments">
@@ -22,9 +14,33 @@
                 <span class="blue">players</span>: {{ tournament.players.length }}
             </div>
             <div class="col-sm-4">
-                <span *ngIf="tournament.winner"><span class="blue">Winner</span>: {{ tournament.winner.username }}</span>
+                <span *ngIf="tournament.winner"><span class="blue">Winner</span>: {{ tournament.winner.username
+                    }}</span>
                 <span *ngIf="!tournament.winner"><span class="blue">Winner</span>: N/A</span>
             </div>
         </div>
     </div>
 </div>
+
+<ng-template #addTournament let-modal>
+    <div class="crypt-modal">
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">New <span class="blue">tournament</span></h4>
+            <button type="button" style="color: white;" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="nameform">
+                <div class="form-inline uninput">
+                    <input placeholder="Enter a name" type="text" formControlName="name"
+                        class="form-control inputfield">
+                    <!-- <small *ngIf="pf.name.errors.required">Name is required!</small> -->
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button (click)="makeTourney()" type="submit" class="btn btn-crypt-blue float-right">Proceed</button>
+        </div>
+    </div>
+</ng-template>

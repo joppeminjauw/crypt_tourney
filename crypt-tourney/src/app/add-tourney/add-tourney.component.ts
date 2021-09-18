@@ -109,7 +109,7 @@ export class AddTourneyComponent implements OnInit {
 
     // persist tournament
     this._tournamentService.saveTournament(this.tournament).subscribe(data => {
-      this.router.navigate(['/app-tourney-overview', { id: data.toString() }]);
+      this.router.navigate(['/app-homepage', { id: data.toString() }]);
     });
   }
 
