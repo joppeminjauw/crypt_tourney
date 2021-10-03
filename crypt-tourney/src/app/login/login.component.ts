@@ -40,6 +40,7 @@ export class LoginComponent implements OnInit {
 
     this.accountService.login(login).subscribe(user => {
       this._loggedUser = user
+      console.log(user.authenticated)
       if (user.authenticated) {
         localStorage.setItem('currentUser', JSON.stringify(user))
         this.router.navigate(['/app-homepage'])

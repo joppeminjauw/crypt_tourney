@@ -1,22 +1,24 @@
-<button class="btn btn-add mt-5" (click)="openModal(addTournament)"><i class="fas fa-plus-square fa-2x"></i></button>
-<div class="pb-4">
-    <h3 class="text-center">MY <span class="blue">TOURNAMENTS</span></h3>
-</div>
-<br>
-<div *ngFor="let tournament of tournaments">
-    <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament text-center mt-2 mb-3 pb-4 pt-4">
-        <h1 class="mb-3">{{ tournament.name | uppercase }}</h1>
-        <div class="row">
-            <div class="col-sm-4">
-                <span class="blue">Games</span>: {{ tournament.tourGames.length }}
-            </div>
-            <div class="col-sm-4">
-                <span class="blue">players</span>: {{ tournament.players.length }}
-            </div>
-            <div class="col-sm-4">
-                <span *ngIf="tournament.winner"><span class="blue">Winner</span>: {{ tournament.winner.username
-                    }}</span>
-                <span *ngIf="!tournament.winner"><span class="blue">Winner</span>: N/A</span>
+<div class="bg-component ml-3 p-4">
+    <button class="btn btn-add mt-5" (click)="openModal(addTournament)"><i class="fas fa-plus-square fa-2x"></i></button>
+    <div class="pb-4">
+        <h3 class="text-center">MY <span class="blue">TOURNAMENTS</span></h3>
+    </div>
+    <br>
+    <div *ngFor="let tournament of tournaments">
+        <div [routerLink]="['/app-tourney-overview', tournament.id]" class="tournament text-center mt-2 mb-3 pb-4 pt-4">
+            <h1 class="mb-3">{{ tournament.name | uppercase }}</h1>
+            <div class="row">
+                <div class="col-sm-4">
+                    <span class="blue">Games</span>: {{ tournament.tourGames.length }}
+                </div>
+                <div class="col-sm-4">
+                    <span class="blue">players</span>: {{ tournament.players.length }}
+                </div>
+                <div class="col-sm-4">
+                    <span *ngIf="tournament.winner"><span class="blue">Winner</span>: {{ tournament.winner.username
+                        }}</span>
+                    <span *ngIf="!tournament.winner"><span class="blue">Winner</span>: N/A</span>
+                </div>
             </div>
         </div>
     </div>

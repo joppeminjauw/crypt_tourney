@@ -5,6 +5,7 @@
 $blue: rgba(0, 203, 221, 1);
 $red: #fd4d4d;
 $bg-dark: #0b0e11;
+$bg-component: #151a21;
 
 html {
     height: 100%;
@@ -81,6 +82,12 @@ button {
         background-color: $blue !important;
         cursor: pointer;
     }
+}
+
+.bg-component {
+    background-color: $bg-component;
+    border-radius: 10px;
+    height: 100%;
 }
 
 h1,

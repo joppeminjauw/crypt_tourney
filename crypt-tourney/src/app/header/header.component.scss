@@ -1,6 +1,32 @@
+$blue: rgba(0, 203, 221, 1);
+$red: #fd4d4d;
+$bg-dark: #0b0e11;
+$bg-component: #151a21;
+
 .profile {
 
     &:hover {
         cursor: pointer;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+
+    nav {
+        li {
+            display: inline;
+
+            a {
+                font-size: 1.3em;
+                color: white;
+
+                &:hover {
+                    text-decoration: none;
+                    color: $blue;
+                }
+            }
+        }
     }
 }

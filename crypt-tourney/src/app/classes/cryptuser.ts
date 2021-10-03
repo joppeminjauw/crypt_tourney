@@ -51,13 +51,15 @@ export class CryptUser {
         var user = new CryptUser(json.firstname, json.lastname, json.username, json.email, json.dob, teams, json.role, friends, json.authenticated, json.err_reason, json.status)
 
         user.id = json.id;
-        user.password = json.password
 
         return user;
     }
 
     static friendFromJSON(json: any) {
-        return new CryptUser(json.firstname, json.lastname, json.username, json.email, json.dob, ɵEMPTY_ARRAY, json.role, ɵEMPTY_ARRAY, json.authenticated, json.err_reason, json.status)
+        var friend : CryptUser = new CryptUser("","", json.username, "", null, null, null, null, null, "", json.status )
+        friend.id = json.id
+
+        return friend
     }
 
     isAdmin() {
