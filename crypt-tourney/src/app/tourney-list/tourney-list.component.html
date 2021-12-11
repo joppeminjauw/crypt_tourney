@@ -1,7 +1,7 @@
-<div class="bg-component ml-3 p-4">
-    <button class="btn btn-add mt-5" (click)="openModal(addTournament)"><i class="fas fa-plus-square fa-2x"></i></button>
-    <div class="pb-4">
-        <h3 class="text-center">MY <span class="blue">TOURNAMENTS</span></h3>
+<div class="bg-component component-main ml-3 mr-3">
+    <div class="pt-4 pb-4 row">
+        <button class="ml-5 col-sm-2 btn btn-crypt-blue btn-add" (click)="openModal(addTournament)"><i class="fas fa-plus-square"></i> new tournament</button>
+        <h3 class="col-sm-8 text-center">MY <span class="blue">TOURNAMENTS</span></h3>
     </div>
     <br>
     <div *ngFor="let tournament of tournaments">

@@ -62,6 +62,10 @@ export class CryptUser {
         return friend
     }
 
+    get fullName() {
+        return this.firstname + " " + this.lastname
+    }
+
     isAdmin() {
         return this.role === UserRole.ADMIN
     }

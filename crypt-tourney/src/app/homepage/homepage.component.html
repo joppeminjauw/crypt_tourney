@@ -1,9 +1,43 @@
-<app-header></app-header>
 <div class="row" style="height: 85%;">
     <div class="col-sm-10 col-md-10 col-lg-10">
-        <app-tourney-list></app-tourney-list>
+        <div class="bg-component ml-3">
+            <div class="row ml-3 mr-3">
+                <div class="col-sm-3 mt-3 component">
+                    <div class="ctr mt-2">
+                        <div class="phrase" id="phrase">
+                            <div class="letter">L</div>
+                            <div class="letter">E</div>
+                            <div class="letter">A</div>
+                            <div class="letter">D</div>
+                            <div class="letter">E</div>
+                            <div class="letter">R</div>
+                            <div class="letter">B</div>
+                            <div class="letter">O</div>
+                            <div class="letter">A</div>
+                            <div class="letter">R</div>
+                            <div class="letter">D</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+
+                </div>
+                <div class="col-sm-3 mt-3 component">
+                    <div class="sumary p-4">
+                        <p class="line-1 anim-typewriter1 m-1 text-left"><span class="blue">Username: </span>
+                            {{currentUser.username}}</p>
+                        <p class="line-2 anim-typewriter2 m-1 text-left"><span class="blue">Fullname: </span>
+                            {{currentUser.firstname + " " + currentUser.lastname}}</p>
+                        <p class="line-3 anim-typewriter3 m-1 text-left"><span class="blue">Status: </span>
+                            {{currentUser.status}}</p>
+                    </div>
+                    <button id="btn-profile" class="float-right btn btn-crypt-blue mb-2">View profile</button>
+                </div>
+            </div>
+        </div>
+
     </div>
     <div class="col-sm-2 col-md-2 col-lg-2">
-        <app-friend-list></app-friend-list>
+        <app-sidebar></app-sidebar>
     </div>
 </div>

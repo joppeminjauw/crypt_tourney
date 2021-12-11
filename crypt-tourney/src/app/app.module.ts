@@ -15,6 +15,8 @@ import { HeaderComponent } from './header/header.component';
 import { RegisterComponent } from './register/register.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FriendListComponent } from './friend-list/friend-list.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { QuickActionsComponent } from './quick-actions/quick-actions.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { FriendListComponent } from './friend-list/friend-list.component';
     HomepageComponent,
     HeaderComponent,
     RegisterComponent,
-    FriendListComponent
+    FriendListComponent,
+    SidebarComponent,
+    QuickActionsComponent
   ],
   imports: [
     BrowserModule,

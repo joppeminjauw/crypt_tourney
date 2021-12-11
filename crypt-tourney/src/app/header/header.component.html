@@ -1,12 +1,14 @@
 <header>
     <div class="row p-3 m-3 bg-component header">
-        <h1 class="col-sm-3"><strong><span class="blue">Cryptonic</span> Gaming</strong></h1>
+        <h1 class="col-sm-3">
+            <strong><span class="blue">Cryptonic</span> Gaming</strong>
+        </h1>
         <nav class="col-sm-5 text-center">
-            <li class="p-4 text-uppercase"><a href="#">home</a></li>
-            <li class="p-4 text-uppercase"><a href="#">teams</a></li>
-            <li class="p-4 text-uppercase"><a href="#">tournaments</a></li>
-            <li class="p-4 text-uppercase"><a href="#">rankings</a></li>
+            <li class="p-4 text-uppercase"><a [routerLink]="['app-homepage']">home</a></li>
+            <li class="p-4 text-uppercase"><a [routerLink]="['app-tourney-list']">teams</a></li>
+            <li class="p-4 text-uppercase"><a [routerLink]="['app-tourney-list']">tournaments</a></li>
+            <li class="p-4 text-uppercase"><a [routerLink]="['app-tourney-list']">rankings</a></li>
         </nav>
-        <h5 class="col-sm-4 text-right profile" (click)="logout()">Welcome, <span class="blue">{{ currentUser.username }}</span></h5>
+        <h5 *ngIf="currentUser.username" class="col-sm-4 text-right profile" (click)="logout()">Welcome, <span class="blue">{{ currentUser.username }}</span></h5>
     </div>
 </header>
